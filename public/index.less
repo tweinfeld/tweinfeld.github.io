@@ -3,6 +3,7 @@
 @theme-color-3: #32c18e;
 @theme-font-1: 'Karla', sans-serif;
 @theme-font-2: "Font Awesome 5 Free";
+@theme-font-3: "Font Awesome 5 Brands";
 @theme-border-radius: 3px;
 
 html {
@@ -18,11 +19,15 @@ body {
 
   > main {
 
+    > header, section {
+      box-shadow: 0 0 2px rgba(0,0,0,0.2);
+    }
+
     > header {
-      //border: solid 1px @theme-color-1;
+
       border-radius: 3px;
       position: relative;
-      padding: 1.5rem 0 1.5rem 7rem;
+      padding: 1.7rem 0 1.7rem 7rem;
       background-color: @theme-color-3;
       color: @theme-color-2;
       margin: 0.5rem 0;
@@ -42,6 +47,7 @@ body {
         font-weight: normal;
         font-size: 1.2rem;
         margin: 0;
+        text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
       }
 
       > h1 {
@@ -59,30 +65,72 @@ body {
 
       > h1 {
         margin: 0 0 1rem 0;
-        font-size: 1.2rem;
-        padding: 0.6rem 1rem;
+        font-size: 1.1rem;
+        padding: 0.4rem 1rem;
         background-color: @theme-color-3;
         color: @theme-color-2;
+        text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
 
         &:before {
+          font-size: 90%;
           font-family: @theme-font-2;
           margin: 0 0.5rem 0 0;
           left: 0;
           top: 0;
           text-align: center;
-          width: 1.4rem;
+          width: 1rem;
           display: inline-block;
         }
-
       }
 
       > p {
         padding: 0.5rem 1rem;
+        line-height: 1.4rem;
       }
 
       &.contact {
+
+        > p {
+          margin: 0;
+        }
+
         > h1:before {
           content: "\f095";
+        }
+
+        > ol {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          > li {
+            cursor: pointer;
+            display: inline-block;
+            margin: 1rem;
+            padding-left: 2rem;
+            position: relative;
+
+            &:before {
+              font-family: @theme-font-3;
+              font-weight: bold;
+              font-size: 1.5rem;
+              vertical-align: middle;
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+            //["#16a086", "#27ae61", "#2a80b9", "#8f44ad", "#2d3e50", "#f39c11", "#d25400", "#c1392b", "#bec3c7", "#7e8c8d"];
+            &.social-linkedin:before {
+              content: "\f08c";
+              color: #2a80b9;
+            }
+
+            &.social-github:before {
+              content: "\f092";
+              color: #f39c11;
+            }
+          }
         }
       }
 
@@ -91,6 +139,9 @@ body {
           content: "\f0fc";
         }
 
+        > p > em {
+          font-weight: bold;
+        }
       }
 
       &.experience {
@@ -108,7 +159,7 @@ body {
           padding: 0.2rem 0;
 
           &:after {
-            color: @theme-color-3;
+            color: @theme-color-1;
             display: block;
             width: 1.5rem;
             height: 1.5rem;
@@ -116,7 +167,7 @@ body {
             font-size: 1rem;
             content: "\f128";
             font-family: @theme-font-2;
-            border: solid 2px @theme-color-3;
+            border: dashed 2px @theme-color-3;
             background-color: #fff;
             position: absolute;
             top: 0;
@@ -198,7 +249,7 @@ body {
               top: 50%;
               margin-top: -1rem;
               border-radius: @theme-border-radius;
-              border: solid 2px @theme-color-3;
+              border: dashed 2px @theme-color-3;
 
               &:after {
                 position: absolute;
@@ -291,8 +342,6 @@ ul.tag {
         font-weight: bold;
       }
     }
-
-    //["#16a086", "#27ae61", "#2a80b9", "#8f44ad", "#2d3e50", "#f39c11", "#d25400", "#c1392b", "#bec3c7", "#7e8c8d"];
 
     .colorize_link(@color){
       color: @theme-color-2;

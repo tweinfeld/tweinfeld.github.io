@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tal Weinfeld - Javascript Developer</title>
+    <title></title>
     <link rel="stylesheet" media="screen" href="index.css">
     <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/solid.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/fontawesome.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/brands.css">
 </head>
 <body>
     <main></main>
@@ -38,7 +39,8 @@
 
                 })(["language", "runtime", "framework", "library"]);
                 identity = (x)=> x,
-                pipe = (...funcs)=> funcs.reduce((wrapperFunction, func)=> (arg)=> func(wrapperFunction(arg)), identity);
+                pipe = (...funcs)=> funcs.reduce((wrapperFunction, func)=> (arg)=> func(wrapperFunction(arg)), identity),
+                launchUrlFactory = (url)=>(e)=> { e.preventDefault(); window.open(url); };
 
             const
                 rootEl = document.querySelector('body'),
@@ -52,8 +54,12 @@
                         ...rest
                     }))
                 ),
-                tagData = await resumeData.then(({ tag })=> tag),
-                companyData = await resumeData.then(({ company })=> company);
+                tagData = await resumeData.then(({ tag = [] })=> tag),
+                profileData = await resumeData.then(({ profile })=> profile),
+                referenceData = await resumeData.then(({ profile: { reference = [] }})=> reference),
+                companyData = await resumeData.then(({ company = [] })=> company);
+
+            document.title = (({ full_name, tagline })=>[full_name, tagline].join(' - '))(profileData);
 
             const
                 applyAttributes = (function(keynameTranslations){
@@ -70,19 +76,19 @@
                     Array.prototype.concat.apply([], children).forEach((child)=> el.appendChild((typeof child === 'string') ? document.createTextNode(child) : child));
                     return el;
                 },
-                [main, a, header, section, h1, h2, span, time, p, img, ol, li, div, ul] = ["main", "a", "header", "section", "h1", "h2", "span", "time", "p", "img", "ol", "li", "div", "ul"].map(htmlTagFactory);
+                [main, a, em, header, section, h1, h2, span, time, p, img, ol, li, div, ul] = ["main", "a", "em", "header", "section", "h1", "h2", "span", "time", "p", "img", "ol", "li", "div", "ul"].map(htmlTagFactory);
 
             let mainEl = main(
                 {},
                 header({},
-                    img({ src: "https://s.gravatar.com/avatar/0ba62a8f31b5ab276240edb47a82d144?s=80" }),
-                    h1({}, "Tal Weinfeld"),
+                    img({ src: profileData["photo"] }),
+                    h1({}, profileData["full_name"]),
                     h2({}, "Data-Systems Architect, Javascript Developer")
                 ),
                 section(
                     { className: "fun" },
                     h1({}, 'Fun Fact'),
-                    p({}, 'This page\'s code (CSS and Javascript) were written without the use of any external frameworks (\"Vanilla\"). Go ahead! Inspect the source code and see for yourself; I\'ve left the source code unobfuscated.')
+                    p({}, 'This page\'s code (CSS and Javascript) were written without the use of ', em({}, 'any'), ' frameworks (\"Vanilla\"). Go ahead! Inspect the source code and see for yourself; I\'ve left the source code unobfuscated.')
                 ),
                 section(
                     { className: "experience" },
@@ -94,7 +100,7 @@
                                 company_id: companyId,
                                 employment_type: employmentType,
                                 employment_period: employmentPeriod,
-                                job_description: jobDescription }, index)=> {
+                                job_description: jobDescription })=> {
 
                             let company = companyData.find(({ id })=> id === companyId);
 
@@ -116,16 +122,13 @@
                                     h1({ title: [position, employmentType === "freelance" && "(as freelancer)"].filter(Boolean).join(' ') }, position),
                                     (function(){
                                         let el = h2({}, company["name"]);
-                                        el[CLICK_HANDLER] = function(e){
-                                            e.preventDefault();
-                                            window.open(company["website_url"]);
-                                        };
+                                        el[CLICK_HANDLER] = launchUrlFactory(company["website_url"]);
                                         return el;
                                     })(),
                                     p({}, jobDescription),
-                                    ul({ className: "tag" }, ...tag.map((tagId)=>tagData.find(({id}) => tagId === id)).sort(tagCategorySort).map((currentTag)=> {
+                                    ul({ className: "tag" }, ...tag.map((tagId)=> tagData.find(({id}) => tagId === id)).sort(tagCategorySort).map((currentTag)=> {
                                         let item = li({ className: [currentTag["category"], currentTag["website_url"] && "link"].filter(Boolean).join(' '), title: currentTag["description"] }, currentTag["name"]);
-                                        currentTag["website_url"] && (item[CLICK_HANDLER] = function(){ window.open(currentTag["website_url"]); });
+                                        currentTag["website_url"] && (item[CLICK_HANDLER] = launchUrlFactory(currentTag["website_url"]));
                                         return item;
                                     }))
                                 ].filter(Boolean)
@@ -135,18 +138,43 @@
                 ),
                 section(
                     { className: "contact" },
-                    h1({}, 'Contact Information'),
-                    p({}, 'Impressed? Choose a way to find more about me:')
+                    h1({}, 'Online Presence & Contact Information'),
+                    p({}, 'Impressed? You can find out more information and contact me through:'),
+                    ol({}, ...referenceData.map((function(renderer){
+                        return ({ id, ...rest })=> renderer[id]({ id, ...rest });
+                    })(
+                        (function({ createSocial, createEmail, createPhone }){
+                            return {
+                                "linkedin": createSocial,
+                                "github": createSocial,
+                                "email": createEmail,
+                                "phone": createPhone
+                            };
+                        })({
+                            createSocial: ({ id, title, website_url })=> {
+                                let clickEl, el = li({ className: `social-${id}` }, clickEl = a({ href: "#" }, title));
+                                clickEl[CLICK_HANDLER] = launchUrlFactory(website_url);
+                                return el;
+                            },
+                            createEmail: ({ address })=> {
+                                return li({ className: "email" }, address);
+
+                            },
+                            createPhone: ({ number })=> {
+                                return li({ className: "phone" }, number);
+                            }
+                        })
+                    )))
                 )
             );
 
             mainEl.addEventListener('click', function(e){
                 let handler = e.target[CLICK_HANDLER];
-                ((handler && pipe(handler, ()=> { e.stopImmediatePropagation(); })) || (()=> {}))(e);
-            });
+                e.target.nodeName === "A" && e.preventDefault();
+                ((handler && pipe(handler, ()=> { e.stopImmediatePropagation(); })) || identity)(e);
+            }, false);
 
             rootEl.append(mainEl);
-
 
         })();
 

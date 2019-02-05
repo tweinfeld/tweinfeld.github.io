@@ -1,5 +1,6 @@
 {
-  "name": "Tal Weinfeld",
+  "full_name": "Tal Weinfeld",
+  "photo": "https://s.gravatar.com/avatar/0ba62a8f31b5ab276240edb47a82d144?s=80",
   "tagline": "Data-Systems Architect, Javascript Developer",
   "experience": [
     {
@@ -51,11 +52,24 @@
       "tag": ["javascript", "browser", "nodejs", "flash", "actionscript", "puremvc", "mysql"]
     }
   ],
-  "profile": [
+  "reference": [
     {
       "id": "linkedin",
       "website_url": "https://www.linkedin.com/in/tweinfeld/",
-      "title": "/tweinfeld"
+      "title": "linkedin.com/in/tweinfeld"
+    },
+    {
+      "id": "github",
+      "website_url": "https://github.com/tweinfeld",
+      "title": "github.com/tweinfeld"
+    },
+    {
+      "id": "email",
+      "address": "talw@webwise.co.il"
+    },
+    {
+      "id": "phone",
+      "number": "+972-54-4776276"
     }
   ]
 }
