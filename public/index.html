@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tal Weinfeld - Javascript Developer</title>
+    <link rel="stylesheet" media="screen" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/solid.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/fontawesome.css">
+</head>
+<body>
+    <main></main>
+    <script>
+
+        (async function(){
+
+            const
+                MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                CLICK_HANDLER = Symbol('ClickHandler');
+
+            const
+                hash = function(str) {
+                    let hash = 0;
+                    str.split('').map((x)=> x.charCodeAt(0)).forEach((char)=> {
+                        hash = ((hash << 5) - hash) + char;
+                        hash = hash & hash;
+                    });
+                    return hash;
+                },
+                tagCategorySort = (function(categoryOrdinal){
+                    return (a, b)=> {
+                        let [ordA, ordB] = [a, b].map((x)=> {
+                            let category = x["category"], pos = categoryOrdinal.indexOf(category);
+                            return ~pos ? pos : (100 + Math.abs(hash(category)));
+                        });
+                        return (ordA - ordB) || (a["name"] > b["name"] ? 1 : [a["name"] < b["name"] ? -1 : 0]);
+                    }
+
+                })(["language", "runtime", "framework", "library"]);
+                identity = (x)=> x,
+                pipe = (...funcs)=> funcs.reduce((wrapperFunction, func)=> (arg)=> func(wrapperFunction(arg)), identity);
+
+            const
+                rootEl = document.querySelector('body'),
+                resumeData = fetch('/api/all.json').then((res)=> res.json()),
+                experienceData = await resumeData.then(({ profile: { experience } })=> experience).then((experienceData)=> experienceData
+                    .map(({ employment_period: employmentPeriod, ...rest })=> ({
+                        employment_period: [null, null].map((__, index)=> {
+                            let d = employmentPeriod[index];
+                            return d && new Date(d + "/01");
+                        }),
+                        ...rest
+                    }))
+                ),
+                tagData = await resumeData.then(({ tag })=> tag),
+                companyData = await resumeData.then(({ company })=> company);
+
+            const
+                applyAttributes = (function(keynameTranslations){
+                    return (el, attributes = {})=> {
+                        Object.keys(attributes).forEach((attributeName)=> {
+                            let value = attributes[attributeName];
+                            value && el.setAttribute(keynameTranslations[attributeName] || attributeName, value)
+                        });
+                        return el;
+                    };
+                })({ "className": "class" }),
+                htmlTagFactory = (tagName)=> (attributes = {}, ...children)=> {
+                    let el = applyAttributes(document.createElement(tagName), attributes);
+                    Array.prototype.concat.apply([], children).forEach((child)=> el.appendChild((typeof child === 'string') ? document.createTextNode(child) : child));
+                    return el;
+                },
+                [main, a, header, section, h1, h2, span, time, p, img, ol, li, div, ul] = ["main", "a", "header", "section", "h1", "h2", "span", "time", "p", "img", "ol", "li", "div", "ul"].map(htmlTagFactory);
+
+            let mainEl = main(
+                {},
+                header({},
+                    img({ src: "https://s.gravatar.com/avatar/0ba62a8f31b5ab276240edb47a82d144?s=80" }),
+                    h1({}, "Tal Weinfeld"),
+                    h2({}, "Data-Systems Architect, Javascript Developer")
+                ),
+                section(
+                    { className: "fun" },
+                    h1({}, 'Fun Fact'),
+                    p({}, 'This page\'s code (CSS and Javascript) were written without the use of any external frameworks (\"Vanilla\"). Go ahead! Inspect the source code and see for yourself; I\'ve left the source code unobfuscated.')
+                ),
+                section(
+                    { className: "experience" },
+                    h1({}, 'Experience'),
+                    ol({},
+                        experienceData.map(({
+                                tag = [],
+                                position,
+                                company_id: companyId,
+                                employment_type: employmentType,
+                                employment_period: employmentPeriod,
+                                job_description: jobDescription }, index)=> {
+
+                            let company = companyData.find(({ id })=> id === companyId);
+
+                            return li({ className: [{ "full-time": "fulltime", "freelance": "freelance" }[employmentType]].filter(Boolean).join(' ')},
+                                ...[
+                                    div({ className: "period" }, ...employmentPeriod.map(
+                                        (date)=> date
+                                            ? time({ datetime: date }, `${[
+                                                MONTH_NAMES[date.getMonth()],
+                                                date.getFullYear()
+                                            ].map((n)=> n.toString().padStart(2, '0')).join(' ')}`)
+                                            : time({}, 'Now')
+                                    )),
+                                    companyId && div({
+                                        className: "logo",
+                                        title: company["name"] || "",
+                                        style: `background-image: url(logos.svg#${companyId});`
+                                    }),
+                                    h1({ title: [position, employmentType === "freelance" && "(as freelancer)"].filter(Boolean).join(' ') }, position),
+                                    (function(){
+                                        let el = h2({}, company["name"]);
+                                        el[CLICK_HANDLER] = function(e){
+                                            e.preventDefault();
+                                            window.open(company["website_url"]);
+                                        };
+                                        return el;
+                                    })(),
+                                    p({}, jobDescription),
+                                    ul({ className: "tag" }, ...tag.map((tagId)=>tagData.find(({id}) => tagId === id)).sort(tagCategorySort).map((currentTag)=> {
+                                        let item = li({ className: [currentTag["category"], currentTag["website_url"] && "link"].filter(Boolean).join(' '), title: currentTag["description"] }, currentTag["name"]);
+                                        currentTag["website_url"] && (item[CLICK_HANDLER] = function(){ window.open(currentTag["website_url"]); });
+                                        return item;
+                                    }))
+                                ].filter(Boolean)
+                            );
+                        })
+                    )
+                ),
+                section(
+                    { className: "contact" },
+                    h1({}, 'Contact Information'),
+                    p({}, 'Impressed? Choose a way to find more about me:')
+                )
+            );
+
+            mainEl.addEventListener('click', function(e){
+                let handler = e.target[CLICK_HANDLER];
+                ((handler && pipe(handler, ()=> { e.stopImmediatePropagation(); })) || (()=> {}))(e);
+            });
+
+            rootEl.append(mainEl);
+
+
+        })();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "codefresh",
+    "name": "Codefresh",
+    "website_url": "https://codefresh.io/"
+  },
+  {
+    "id": "bitmain",
+    "name": "Bitmain",
+    "website_url": "https://www.bitmain.com/"
+  },
+  {
+    "id": "tikal",
+    "name": "Tikal",
+    "website_url": "https://www.tikalk.com/"
+  },
+  {
+    "id": "ironsource",
+    "name": "ironSource",
+    "website_url": "https://www.ironsrc.com/"
+  },
+  {
+    "id": "initech",
+    "name": "Initech",
+    "website_url": "https://initech.co.il/en/"
+  },
+  {
+    "id": "appnext",
+    "name": "AppNext",
+    "website_url": "https://www.appnext.com/"
+  }
+]

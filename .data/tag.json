@@ -1,0 +1,235 @@
+[
+  {
+    "id": "javascript",
+    "name": "Javascript",
+    "category": "language",
+    "description": "Programming language"
+  },
+  {
+    "id": "kefirjs",
+    "name": "Kefir.js",
+    "category": "library",
+    "description": "Reactive Programming library for JavaScript",
+    "website_url": "https://kefirjs.github.io/kefir/"
+  },
+  {
+    "id": "reactjs",
+    "name": "React",
+    "category": "library",
+    "description": "JavaScript library for building user interfaces",
+    "website_url": "https://reactjs.org/"
+  },
+  {
+    "id": "csharp",
+    "name": "C#",
+    "category": "language",
+    "description": "Programming language"
+  },
+  {
+    "id": "expressjs",
+    "name": "Express",
+    "category": "application_framework",
+    "description": "Node.js web application framework",
+    "website_url": "https://expressjs.com/"
+  },
+  {
+    "id": "nodejs",
+    "name": "Node.js",
+    "category": "runtime",
+    "description": "JavaScript runtime",
+    "website_url": "https://nodejs.org/en/"
+  },
+  {
+    "id": "lodash",
+    "name": "Lodash",
+    "category": "library",
+    "description": "JavaScript utility library",
+    "website_url": "https://lodash.com/"
+  },
+  {
+    "id": "ramda",
+    "name": "Ramda",
+    "category": "library",
+    "description": "Javascript functional utility library",
+    "website_url": "https://ramdajs.com/"
+  },
+  {
+    "id": "rabbitmq",
+    "name": "RabbitMQ",
+    "category": "data_service",
+    "description": "Open source message broker",
+    "website_url": "https://www.rabbitmq.com/"
+  },
+  {
+    "id": "mysql",
+    "name": "MySQL",
+    "category": "data_service",
+    "description": "Open source database",
+    "website_url": "https://www.mysql.com/"
+  },
+  {
+    "id": "postgresql",
+    "name": "PostgreSQL",
+    "category": "data_service",
+    "description": "Open source database",
+    "website_url": "https://www.postgresql.org/"
+  },
+  {
+    "id": "helm",
+    "name": "Helm",
+    "category": "deployment",
+    "description": "Package manager for Kubernetes",
+    "website_url": "https://helm.sh/"
+  },
+  {
+    "id": "kubernetes",
+    "name": "Kubernetes",
+    "category": "deployment",
+    "description": "Open-source system for automating deployment",
+    "website_url": "https://kubernetes.io/"
+  },
+  {
+    "id": "docker",
+    "name": "Docker",
+    "category": "runtime",
+    "description": "Container platform",
+    "website_url": "https://www.docker.com/products/docker-engine"
+  },
+  {
+    "id": "browser",
+    "name": "Browser",
+    "category": "runtime",
+    "description": "Web Browser (front-end application)"
+  },
+  {
+    "id": "elastic",
+    "name": "Elastic",
+    "category": "data_service",
+    "description": "Open source search database",
+    "website_url": "https://www.elastic.co/"
+  },
+  {
+    "id": "jasmine",
+    "name": "Jasmine",
+    "category": "library",
+    "description": "Assertion library and test harness",
+    "website_url": "https://jasmine.github.io/"
+  },
+  {
+    "id": "baconjs",
+    "name": "Bacon.js",
+    "category": "library",
+    "description": "Functional reactive programming library",
+    "website_url": "https://baconjs.github.io/"
+  },
+  {
+    "id": "tape",
+    "name": "tape",
+    "category": "library",
+    "description": "Tap-producing test harness",
+    "website_url": "https://github.com/substack/tape"
+  },
+  {
+    "id": "reactivex",
+    "name": "ReactiveX",
+    "category": "library",
+    "description": "Observables library",
+    "website_url": "http://reactivex.io/"
+  },
+  {
+    "id": "backbone",
+    "name": "Backbone",
+    "category": "library",
+    "description": "MVC library",
+    "website_url": "http://backbonejs.org/"
+  },
+  {
+    "id": "angular",
+    "name": "Angular",
+    "category": "application_framework",
+    "description": "Front-end application framework",
+    "website_url": "https://angular.io/"
+  },
+  {
+    "id": "redshift",
+    "name": "Amazon Redshift",
+    "category": "data_service",
+    "description": "Data warehouse and search engine service",
+    "website_url": "https://aws.amazon.com/redshift/"
+  },
+  {
+    "id": "aws",
+    "name": "Amazon Web Services",
+    "category": "cloud_provider",
+    "description": "Cloud computing services",
+    "website_url": "https://aws.amazon.com/"
+  },
+  {
+    "id": "azure",
+    "name": "Microsoft Azure",
+    "category": "cloud_provider",
+    "description": "Cloud computing services",
+    "website_url": "https://azure.microsoft.com/en-us/"
+  },
+  {
+    "id": "webpack",
+    "name": "webpack",
+    "category": "deployment",
+    "description": "Resource bundle utility",
+    "website_url": "https://webpack.js.org/"
+  },
+  {
+    "id": "gulp",
+    "name": "gulp",
+    "category": "deployment",
+    "description": "Build utility",
+    "website_url": "https://gulpjs.com/"
+  },
+  {
+    "id": "grunt",
+    "name": "Grunt",
+    "category": "deployment",
+    "description": "Task runner",
+    "website_url": "https://gruntjs.com/"
+  },
+  {
+    "id": "easeljs",
+    "name": "EaselJS",
+    "category": "library",
+    "description": "HTML5 canvas utility library",
+    "website_url": "https://www.createjs.com/easeljs"
+  },
+  {
+    "id": "marionette",
+    "name": "Marionette.js",
+    "category": "library",
+    "description": "Backbone.js utility library",
+    "website_url": "https://marionettejs.com/"
+  },
+  {
+    "id": "graylog",
+    "name": "Graylog",
+    "category": "data_service",
+    "description": "Logging service",
+    "website_url": "https://www.graylog.org/"
+  },
+  {
+    "id": "flash",
+    "name": "Adobe Flash",
+    "category": "runtime",
+    "description": "Proprietary web plugin"
+  },
+  {
+    "id": "actionscript",
+    "name": "ActionScript",
+    "category": "language",
+    "description": "ECMA-based script for authoring Adobe Flash applications"
+  },
+  {
+    "id": "puremvc",
+    "name": "PureMVC",
+    "category": "library",
+    "description": "Actionscript MVC library",
+    "website_url": "http://puremvc.org/"
+  }
+]

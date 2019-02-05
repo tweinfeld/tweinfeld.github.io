@@ -1,0 +1,61 @@
+{
+  "name": "Tal Weinfeld",
+  "tagline": "Data-Systems Architect, Javascript Developer",
+  "experience": [
+    {
+      "position": "Principal Developer",
+      "company_id": "codefresh",
+      "employment_period": ["2017/03", "2019/02"],
+      "employment_type": "full-time",
+      "job_description": "Reviewed and revised the design of core system elements. Founded fresh code-bases for various projects.",
+      "tag": ["javascript", "kefirjs", "reactjs", "expressjs", "nodejs", "lodash", "postgresql", "kubernetes", "docker", "helm", "rabbitmq", "browser", "aws"]
+    },
+    {
+      "position": "System Architect",
+      "company_id": "bitmain",
+      "employment_period": ["2016/07", "2017/03"],
+      "employment_type": "freelance",
+      "job_description": "Designed and coded a Bitcoin mining pool system using NodeJS, Postgres, GrayLog, ElasticSearch, RabbitMQ.",
+      "tag": ["javascript", "nodejs","expressjs", "reactjs", "kefirjs", "docker", "elastic", "mysql", "rabbitmq", "browser", "kubernetes", "aws", "graylog"]
+    },
+    {
+      "position": "Consultant",
+      "company_id": "tikal",
+      "employment_period": ["2015/03", "2016/05"],
+      "employment_type": "freelance",
+      "job_description": "Took part in multiple Tikal projects, consulting and developing in Javascript, React, RxJS, KefirJS, BaconJS and test frameworks",
+      "tag": ["javascript", "nodejs", "expressjs", "jasmine", "reactjs", "baconjs", "browser", "rabbitmq", "tape", "reactivex", "baconjs", "aws"]
+    },
+    {
+      "position": "Lead Developer",
+      "company_id": "ironsource",
+      "employment_period": ["2013/03", "2015/01"],
+      "employment_type": "freelance",
+      "job_description": "Designed and written pure Javascript code for an ad-delivery (\"publisher snippet\") project (\"CAST\"). Constructed a modular system for supporting multiple types of ads, devices and networks",
+      "tag": ["javascript", "nodejs", "browser", "baconjs", "backbone", "redshift", "angular", "aws", "azure", "gulp", "marionette"]
+    },
+    {
+      "position": "Lead Developer",
+      "company_id": "initech",
+      "employment_period": ["2012/11", "2013/03"],
+      "employment_type": "freelance",
+      "job_description": "Developed a JS/HTML5 web-mobile game. Handled many early-days mobile web environment challenges",
+      "tag": ["easeljs", "javascript", "browser", "gulp", "grunt", "backbone"]
+    },
+    {
+      "position": "Web Developer",
+      "company_id": "appnext",
+      "employment_period": ["2011/03", "2012/11"],
+      "employment_type": "freelance",
+      "job_description": "Web-based gaming project",
+      "tag": ["javascript", "browser", "nodejs", "flash", "actionscript", "puremvc", "mysql"]
+    }
+  ],
+  "profile": [
+    {
+      "id": "linkedin",
+      "website_url": "https://www.linkedin.com/in/tweinfeld/",
+      "title": "/tweinfeld"
+    }
+  ]
+}
