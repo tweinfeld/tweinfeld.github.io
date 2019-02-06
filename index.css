@@ -226,7 +226,7 @@ body > main > section.experience > ol > li > div.logo {
   top: 50%;
   margin-top: -1rem;
   border-radius: 3px;
-  border: dashed 2px #32c18e;
+  border: solid 1px #32c18e;
 }
 body > main > section.experience > ol > li > div.logo:after {
   position: absolute;
