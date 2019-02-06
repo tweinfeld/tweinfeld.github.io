@@ -76,19 +76,22 @@
                     Array.prototype.concat.apply([], children).forEach((child)=> el.appendChild((typeof child === 'string') ? document.createTextNode(child) : child));
                     return el;
                 },
-                [main, a, em, header, section, h1, h2, span, time, p, img, ol, li, div, ul] = ["main", "a", "em", "header", "section", "h1", "h2", "span", "time", "p", "img", "ol", "li", "div", "ul"].map(htmlTagFactory);
+                [main, button, a, aside, em, header, section, h1, h2, span, time, p, img, ol, li, div, ul] = ["main", "button", "a", "aside", "em", "header", "section", "h1", "h2", "span", "time", "p", "img", "ol", "li", "div", "ul"].map(htmlTagFactory);
 
             let mainEl = main(
                 {},
                 header({},
                     img({ src: profileData["photo"] }),
                     h1({}, profileData["full_name"]),
-                    h2({}, "Data-Systems Architect, Javascript Developer")
+                    h2({}, "Data-Systems Architect, Javascript Developer"),
+                    aside({},
+                        Object.assign(button({ className: "print" }, 'Print'), { [CLICK_HANDLER]: window.print }),
+                    )
                 ),
                 section(
                     { className: "fun" },
                     h1({}, 'Fun Fact'),
-                    p({}, 'This page\'s code (CSS and Javascript) was authored without the use of ', em({}, 'any'), ' frameworks (\"Vanilla\"). ', Object.assign(a({ href: "#" }, 'Go ahead! Check it out for yourself.'), { [CLICK_HANDLER]: launchUrlFactory('https://github.com/tweinfeld/tweinfeld.github.io') }))
+                    p({}, 'This page\'s code (CSS and Javascript) was authored without the use of ', em({}, 'any'), ' frameworks (\"Vanilla\"). ', Object.assign(a({ href: "https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html" }, 'Go ahead! Check it out for yourself.'), { [CLICK_HANDLER]: launchUrlFactory('https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html') }))
                 ),
                 section(
                     { className: "experience" },

@@ -39,32 +39,75 @@ body {
 
       border-radius: 3px;
       position: relative;
-      padding: 1.7rem 0 1.7rem 7rem;
+      padding: 1.5rem 0 1.5rem 6rem;
       background-color: @theme-color-3;
       color: @theme-color-2;
       margin: 0.5rem 0;
+      overflow: hidden;
 
       > img {
         position: absolute;
         top: 50%;
         left: 1rem;
         border-radius: 80px;
-        width: 5rem;
-        height: 5rem;
+        width: 4rem;
+        height: 4rem;
         border: solid 2px @theme-color-2;
+        z-index: 999;
         transform: translateY(-50%);
+        box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
       }
 
       > h1, > h2 {
-        font-weight: normal;
-        font-size: 1.2rem;
+        font-weight: bold;
+        font-size: 1rem;
         margin: 0;
+        text-transform: uppercase;
         text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
       }
 
       > h1 {
         font-size: 1.6rem;
-        font-weight: bold;
+        line-height: 1.8rem;
+      }
+
+      > aside {
+        text-align: right;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: inline-block;
+        width: 100%;
+        padding: 0.8rem 0.8rem;
+        box-sizing: border-box;
+
+        > button {
+          background-color: darken(@theme-color-3, 5%);
+          border: solid 1px @theme-color-2;
+          border-radius: 2px;
+          color: @theme-color-2;
+          margin-left: 5px;
+          cursor: pointer;
+          padding: 5px 5px;
+          box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+
+          &:focus {
+            outline: none;
+          }
+
+          &:before {
+            font-family: @theme-font-2;
+            margin-right: 4px;
+            font-weight: bold;
+          }
+          &.print:before {
+            content: "\f02f";
+          }
+          &.json:before {
+            content: "\f15b";
+          }
+        }
+
       }
     }
 
@@ -77,11 +120,12 @@ body {
 
       > h1 {
         margin: 0 0 1rem 0;
-        font-size: 1.1rem;
-        padding: 0.4rem 1rem;
+        font-size: 1rem;
+        padding: 0.4rem 0.5rem;
         background-color: @theme-color-3;
         color: @theme-color-2;
         text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+        text-transform: uppercase;
 
         &:before {
           font-size: 90%;
