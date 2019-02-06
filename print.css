@@ -30,6 +30,9 @@ body > main > header > h2 {
 body > main > header > img {
   display: none;
 }
+body > main > header > aside {
+  display: none;
+}
 body > main section {
   margin: 1rem;
 }
