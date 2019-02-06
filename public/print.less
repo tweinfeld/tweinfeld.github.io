@@ -1,0 +1,126 @@
+a {
+  text-decoration: none;
+}
+
+h1, h2 {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+body {
+  font-family: Tahoma, Geneva, sans-serif;
+  margin: 0;
+  padding: 0;
+  > main {
+    > header {
+      padding: 1rem;
+      background-color: #000;
+      color: #fff;
+      > h1, h2 {
+        margin: 0;
+      }
+      > h1 {
+        font-size: 2rem;
+      }
+
+      > h2 {
+        font-size: 1.2rem;
+      }
+      > img {
+        display: none;
+      }
+    }
+
+    section {
+
+      margin: 1rem;
+      h1, h2 {
+        font-weight: bold;
+      }
+
+      &.fun {
+        display: none;
+      }
+
+      &.experience {
+
+        h1 {
+          font-size: 1.2rem;
+        }
+
+        h2 {
+          margin: 0.4rem 0;
+        }
+
+        > ol {
+          padding: 0;
+          list-style: none;
+
+          > li {
+            margin: 1rem;
+            > div.period {
+              font-size: 0.8rem;
+              > time:last-of-type:before {
+                content: " - ";
+              }
+            }
+          }
+        }
+      }
+
+      &.contact {
+
+        > ol {
+          list-style: square;
+          > li {
+            margin: 0.3rem;
+
+            a[href]:after {
+              content: "  (" attr(href) ")";
+              white-space: pre;
+            }
+
+            &.email {
+              &:before {
+                content: "Email: "
+              }
+            }
+
+            &.social-linkedin {
+              &:before {
+                content: "Linkedin: "
+              }
+            }
+
+            &.social-github {
+              &:before {
+                content: "Github: "
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+ul.tag {
+  padding: 0;
+
+  li {
+
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    background-color: #000;
+    color: #fff;
+    margin: 1px;
+    border-radius: 2px;
+  }
+}
+
+
+
+
+
