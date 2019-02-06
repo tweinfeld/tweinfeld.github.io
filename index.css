@@ -1,0 +1,358 @@
+html {
+  height: 100%;
+}
+a {
+  color: #aaaaaa;
+}
+a,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+body {
+  padding: 1rem;
+  margin: 0;
+  background-color: #f7f7f7;
+  color: #444;
+  font-family: 'Karla', sans-serif;
+}
+body > main > header,
+body > main section {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+body > main > header {
+  border-radius: 3px;
+  position: relative;
+  padding: 1.7rem 0 1.7rem 7rem;
+  background-color: #32c18e;
+  color: #f7f7f7;
+  margin: 0.5rem 0;
+}
+body > main > header > img {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  border-radius: 80px;
+  width: 5rem;
+  height: 5rem;
+  border: solid 2px #f7f7f7;
+  transform: translateY(-50%);
+}
+body > main > header > h1,
+body > main > header > h2 {
+  font-weight: normal;
+  font-size: 1.2rem;
+  margin: 0;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+body > main > header > h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+body > main > section {
+  margin: 0.5rem 0;
+  border: solid 1px #32c18e;
+  background-color: #ffffff;
+  padding: 0;
+  border-radius: 3px;
+}
+body > main > section > h1 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  padding: 0.4rem 1rem;
+  background-color: #32c18e;
+  color: #f7f7f7;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+body > main > section > h1:before {
+  font-size: 90%;
+  font-family: "Font Awesome 5 Free";
+  margin: 0 0.5rem 0 0;
+  left: 0;
+  top: 0;
+  text-align: center;
+  width: 1rem;
+  display: inline-block;
+}
+body > main > section > p {
+  padding: 0.5rem 1rem;
+  line-height: 1.4rem;
+}
+body > main > section.contact > p {
+  margin: 0;
+  padding: 0 1rem;
+}
+body > main > section.contact > h1:before {
+  content: "\f095";
+}
+body > main > section.contact > ol {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 1rem;
+}
+body > main > section.contact > ol > li {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0.3rem;
+  padding-left: 1.6rem;
+  position: relative;
+}
+body > main > section.contact > ol > li:before {
+  font-family: "Font Awesome 5 Brands";
+  font-weight: bold;
+  font-size: 1.5rem;
+  vertical-align: middle;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+body > main > section.contact > ol > li.social-linkedin:before {
+  content: "\f08c";
+  color: #2a80b9;
+}
+body > main > section.contact > ol > li.social-github:before {
+  content: "\f092";
+  color: #f39c11;
+}
+body > main > section.contact > ol > li.email:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f199";
+  color: #d25400;
+}
+body > main > section.contact > ol > li.phone:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f098";
+  color: #16a086;
+}
+body > main > section.fun > h1:before {
+  content: "\f0fc";
+}
+body > main > section.fun > p > em {
+  font-weight: bold;
+}
+body > main > section.experience > h1:before {
+  content: "\f017";
+}
+body > main > section.experience > ol {
+  list-style: none;
+  margin: 2rem 1rem;
+  position: relative;
+  padding: 0.2rem 0;
+}
+body > main > section.experience > ol:after {
+  color: #444;
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 1rem;
+  content: "\f128";
+  font-family: "Font Awesome 5 Free";
+  border: dashed 2px #32c18e;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: calc(7rem + 1px);
+  transform: translateX(-50%);
+  border-radius: 2rem;
+  text-align: center;
+  font-style: 'Karla', sans-serif;
+  font-weight: bold;
+}
+body > main > section.experience > ol:before {
+  content: "";
+  top: 0;
+  left: 7rem;
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  border-left: 2px dotted #32c18e;
+}
+body > main > section.experience > ol > li {
+  padding: 1.2rem 1rem 1.2rem 8.5rem;
+  position: relative;
+  min-height: 6rem;
+  box-sizing: border-box;
+  margin: 1.5rem 0;
+}
+body > main > section.experience > ol > li > h1 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+body > main > section.experience > ol > li.freelance > h1:after {
+  content: "\f0f2";
+  font-weight: bold;
+  font-family: "Font Awesome 5 Free";
+  margin: 0 0.3rem;
+  color: #c3c3c3;
+  font-size: 80%;
+  vertical-align: baseline;
+}
+body > main > section.experience > ol > li > h2 {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  font-weight: normal;
+  cursor: pointer;
+  display: inline-block;
+}
+body > main > section.experience > ol > li > p {
+  margin: 0.8rem 0;
+  font-style: italic;
+  line-height: 1.5rem;
+}
+body > main > section.experience > ol > li > p:before {
+  content: "“";
+}
+body > main > section.experience > ol > li > p:after {
+  content: "”";
+}
+body > main > section.experience > ol > li > div.logo {
+  position: absolute;
+  width: 5.2rem;
+  height: 2rem;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 95%;
+  left: 0.8rem;
+  top: 50%;
+  margin-top: -1rem;
+  border-radius: 3px;
+  border: dashed 2px #32c18e;
+}
+body > main > section.experience > ol > li > div.logo:after {
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 7px solid #32c18e;
+}
+body > main > section.experience > ol > li > div.period {
+  position: absolute;
+  top: -3px;
+  left: 10px;
+  margin: 0.2rem 0;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-image: linear-gradient(#32c18e, #32c18e);
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-origin: padding-box;
+  background-position: right 0;
+  height: 100%;
+  width: 6.5rem;
+  box-sizing: border-box;
+  color: #32c18e;
+}
+body > main > section.experience > ol > li > div.period > time {
+  display: block;
+  position: absolute;
+  right: 12px;
+}
+body > main > section.experience > ol > li > div.period > time:before {
+  content: "";
+  background-color: #fff;
+  display: block;
+  width: 6px;
+  height: 6px;
+  border: solid 2px #32c18e;
+  border-radius: 10px;
+  position: absolute;
+  right: -16px;
+  top: 1px;
+}
+body > main > section.experience > ol > li > div.period > time:last-of-type {
+  top: 10px;
+}
+body > main > section.experience > ol > li > div.period > time:first-of-type {
+  bottom: 10px;
+}
+ul.tag {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.tag > li {
+  display: inline-block;
+  padding: 0.2rem 0.3rem;
+  margin: 0.1rem 0.1rem;
+  background-color: #bfbfbf;
+  border-radius: 2px;
+  font-size: 0.8rem;
+}
+ul.tag > li.link {
+  cursor: pointer;
+}
+ul.tag > li.link:after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f360";
+  vertical-align: middle;
+  font-size: 0.7rem;
+  margin: 0 0 0 0.3rem;
+  font-weight: bold;
+}
+ul.tag > li.application_framework {
+  color: #f7f7f7;
+  background-color: #7e8c8d;
+}
+ul.tag > li.application_framework.link:hover {
+  background-color: #99a4a5;
+}
+ul.tag > li.library {
+  color: #f7f7f7;
+  background-color: #27ae61;
+}
+ul.tag > li.library.link:hover {
+  background-color: #36d279;
+}
+ul.tag > li.language {
+  color: #f7f7f7;
+  background-color: #2a80b9;
+}
+ul.tag > li.language.link:hover {
+  background-color: #429ad4;
+}
+ul.tag > li.runtime {
+  color: #f7f7f7;
+  background-color: #8f44ad;
+}
+ul.tag > li.runtime.link:hover {
+  background-color: #a663c1;
+}
+ul.tag > li.data_service {
+  color: #f7f7f7;
+  background-color: #bec3c7;
+}
+ul.tag > li.data_service.link:hover {
+  background-color: #d9dcdf;
+}
+ul.tag > li.deployment {
+  color: #f7f7f7;
+  background-color: #f39c11;
+}
+ul.tag > li.deployment.link:hover {
+  background-color: #f5b042;
+}
+ul.tag > li.cloud_provider {
+  color: #f7f7f7;
+  background-color: #d25400;
+}
+ul.tag > li.cloud_provider.link:hover {
+  background-color: #ff6a06;
+}
+/*# sourceMappingURL=index.css.map */
