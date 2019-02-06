@@ -10,6 +10,18 @@ html {
   height: 100%;
 }
 
+a {
+  color: lighten(@theme-color-1, 40%);
+}
+
+a, a:visited, a:link, a:active {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 body {
   padding: 1rem;
   margin: 0;
@@ -92,22 +104,26 @@ body {
 
         > p {
           margin: 0;
+          padding: 0 1rem;
         }
 
-        > h1:before {
-          content: "\f095";
+        > h1 {
+          &:before {
+            content: "\f095";
+          }
         }
 
         > ol {
+          text-align: left;
           list-style: none;
           padding: 0;
-          margin: 0;
+          margin: 1rem;
 
           > li {
             cursor: pointer;
             display: inline-block;
-            margin: 1rem;
-            padding-left: 2rem;
+            margin: 0.3rem;
+            padding-left: 1.6rem;
             position: relative;
 
             &:before {
@@ -129,6 +145,18 @@ body {
             &.social-github:before {
               content: "\f092";
               color: #f39c11;
+            }
+
+            &.email:before {
+              font-family: @theme-font-2;
+              content: "\f199";
+              color: #d25400;
+            }
+
+            &.phone:before {
+              font-family: @theme-font-2;
+              content: "\f098";
+              color: #16a086;
             }
           }
         }
@@ -154,7 +182,7 @@ body {
 
         > ol {
           list-style: none;
-          margin: 1rem 0;
+          margin: 2rem 1rem;
           position: relative;
           padding: 0.2rem 0;
 
@@ -249,7 +277,7 @@ body {
               top: 50%;
               margin-top: -1rem;
               border-radius: @theme-border-radius;
-              border: dashed 2px @theme-color-3;
+              border: solid 1px @theme-color-3;
 
               &:after {
                 position: absolute;

@@ -12,7 +12,6 @@
 <body>
     <main></main>
     <script>
-
         (async function(){
 
             const
@@ -59,7 +58,7 @@
                 referenceData = await resumeData.then(({ profile: { reference = [] }})=> reference),
                 companyData = await resumeData.then(({ company = [] })=> company);
 
-            document.title = (({ full_name, tagline })=>[full_name, tagline].join(' - '))(profileData);
+            document.title = (({ full_name, tagline })=> [full_name, tagline].join(' - '))(profileData);
 
             const
                 applyAttributes = (function(keynameTranslations){
@@ -88,7 +87,7 @@
                 section(
                     { className: "fun" },
                     h1({}, 'Fun Fact'),
-                    p({}, 'This page\'s code (CSS and Javascript) were written without the use of ', em({}, 'any'), ' frameworks (\"Vanilla\"). Go ahead! Inspect the source code and see for yourself; I\'ve left the source code unobfuscated.')
+                    p({}, 'This page\'s code (CSS and Javascript) was authored without the use of ', em({}, 'any'), ' frameworks (\"Vanilla\"). ', Object.assign(a({ href: "#" }, 'Go ahead! Check it out for yourself.'), { [CLICK_HANDLER]: launchUrlFactory('https://github.com/tweinfeld/tweinfeld.github.io') }))
                 ),
                 section(
                     { className: "experience" },
@@ -151,18 +150,9 @@
                                 "phone": createPhone
                             };
                         })({
-                            createSocial: ({ id, title, website_url })=> {
-                                let clickEl, el = li({ className: `social-${id}` }, clickEl = a({ href: "#" }, title));
-                                clickEl[CLICK_HANDLER] = launchUrlFactory(website_url);
-                                return el;
-                            },
-                            createEmail: ({ address })=> {
-                                return li({ className: "email" }, address);
-
-                            },
-                            createPhone: ({ number })=> {
-                                return li({ className: "phone" }, number);
-                            }
+                            createSocial: ({ id, title, website_url })=> li({ className: `social-${id}` }, Object.assign(a({ href: "#" }, title), { [CLICK_HANDLER]: launchUrlFactory(website_url) })),
+                            createEmail: ({ address })=> li({ className: `email` }, Object.assign(a({ href: "#" }, address), { [CLICK_HANDLER]: launchUrlFactory(`mailto:${address}`) })),
+                            createPhone: ({ number })=> li({ className: `phone` }, Object.assign(a({ href: "#" }, number), { [CLICK_HANDLER]: launchUrlFactory(`tel:${number}`) }))
                         })
                     )))
                 )
@@ -177,7 +167,6 @@
             rootEl.append(mainEl);
 
         })();
-
     </script>
 </body>
 </html>
