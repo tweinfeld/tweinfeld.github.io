@@ -48,7 +48,7 @@
                 })(["language", "runtime", "framework", "library"]);
                 identity = (x)=> x,
                 pipe = (...funcs)=> funcs.reduce((wrapperFunction, func)=> (arg)=> func(wrapperFunction(arg)), identity),
-                sendAnalyticsEvent = (eventName, str)=> (window["gtag"] || identity)('event', eventName, str && { "event_category": "general", "event_label": str }),
+                sendAnalyticsEvent = (eventName, str)=> (window["gtag"] || identity)('event', eventName, Object.assign({ "event_category": "general" }, str && { "event_label": str })),
                 launchUrlFactory = (url)=> (e)=> {
                     e.preventDefault();
                     window.open(url);
@@ -98,9 +98,10 @@
                     img({ src: profileData["photo"] }),
                     h1({}, profileData["full_name"]),
                     h2({}, "Data-Systems Architect, Javascript Developer"),
-                    aside({},
-                        Object.assign(button({ className: "print" }, 'Print'), { [CLICK_HANDLER]: window.print }),
-                    )
+                    aside({}, Object.assign(button({ className: "print" }, 'Print'), { [CLICK_HANDLER]: ()=> {
+                        sendAnalyticsEvent('print');
+                        window.print();
+                    }})),
                 ),
                 section(
                     { className: "fun" },
