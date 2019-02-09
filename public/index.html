@@ -157,7 +157,7 @@
                 section(
                     { className: "contact" },
                     h1({}, 'Online Presence & Contact Information'),
-                    p({}, 'You can find out more information and contact me through:'),
+                    p({}, 'Find out more information and contact me:'),
                     ol({}, ...referenceData.map((function(renderer){
                         return ({ id, ...rest })=> renderer[id]({ id, ...rest });
                     })(
