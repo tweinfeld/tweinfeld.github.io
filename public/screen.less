@@ -1,6 +1,7 @@
 @theme-color-1: #444;
 @theme-color-2: #f7f7f7;
-@theme-color-3: #2a80b9;
+@theme-color-3: #999;
+@theme-color-4: #2dcc70;
 @theme-font-1: 'Karla', sans-serif;
 @theme-font-2: "Font Awesome 5 Free";
 @theme-font-3: "Font Awesome 5 Brands";
@@ -202,6 +203,12 @@ body {
               content: "\f098";
               color: #16a086;
             }
+
+            &.website:before {
+              font-family: @theme-font-2;
+              content: "\f360";
+              color: #27ae61;
+            }
           }
         }
       }
@@ -231,7 +238,7 @@ body {
           padding: 0.2rem 0;
 
           &:after {
-            color: @theme-color-3;
+            color: @theme-color-4;
             display: block;
             width: 1.5rem;
             height: 1.5rem;
@@ -239,7 +246,7 @@ body {
             font-size: 1rem;
             content: "\f128";
             font-family: @theme-font-2;
-            border: dashed 2px @theme-color-3;
+            border: dashed 2px @theme-color-4;
             background-color: #fff;
             position: absolute;
             top: 0;
@@ -259,7 +266,7 @@ body {
             position: absolute;
             height: 100%;
             width: 2px;
-            border-left: 2px dotted @theme-color-3;
+            border-left: 2px dotted @theme-color-4;
           }
 
           > li {
@@ -347,7 +354,7 @@ body {
               font-size: 0.7rem;
               font-weight: bold;
               text-transform: uppercase;
-              background-image: linear-gradient(@theme-color-3, @theme-color-3);
+              background-image: linear-gradient(@theme-color-4, @theme-color-4);
               background-size: 2px 100%;
               background-repeat: no-repeat;
               background-origin: padding-box;
@@ -367,7 +374,7 @@ body {
                   display: block;
                   width: 6px;
                   height: 6px;
-                  border: solid 2px @theme-color-3;
+                  border: solid 2px @theme-color-4;
                   border-radius: 10px;
                   position: absolute;
                   right: -16px;
