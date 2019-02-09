@@ -2,7 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Loading..</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1155730-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-1155730-5');
+    </script>
     <link rel="stylesheet" media="print" href="print.css">
     <link rel="stylesheet" media="screen" href="screen.css">
     <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700" rel="stylesheet">
@@ -40,7 +48,13 @@
                 })(["language", "runtime", "framework", "library"]);
                 identity = (x)=> x,
                 pipe = (...funcs)=> funcs.reduce((wrapperFunction, func)=> (arg)=> func(wrapperFunction(arg)), identity),
-                launchUrlFactory = (url)=> (e)=> { e.preventDefault(); window.open(url); };
+                sendAnalyticsEvent = (eventName, str)=> (window["gtag"] || identity)('event', eventName, str && { "event_category": "general", "event_label": str }),
+                launchUrlFactory = (url)=> (e)=> {
+                    e.preventDefault();
+                    window.open(url);
+                    sendAnalyticsEvent('visit_url', url);
+                };
+
 
             const
                 rootEl = document.querySelector('body'),
@@ -142,7 +156,7 @@
                 section(
                     { className: "contact" },
                     h1({}, 'Online Presence & Contact Information'),
-                    p({}, 'Impressed? You can find out more information and contact me through:'),
+                    p({}, 'You can find out more information and contact me through:'),
                     ol({}, ...referenceData.map((function(renderer){
                         return ({ id, ...rest })=> renderer[id]({ id, ...rest });
                     })(

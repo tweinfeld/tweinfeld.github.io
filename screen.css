@@ -28,7 +28,7 @@ body > main > header {
   border-radius: 3px;
   position: relative;
   padding: 1.5rem 0 1.5rem 6rem;
-  background-color: #32c18e;
+  background-color: #2a80b9;
   color: #f7f7f7;
   margin: 0.5rem 0;
   overflow: hidden;
@@ -68,7 +68,7 @@ body > main > header > aside {
   box-sizing: border-box;
 }
 body > main > header > aside > button {
-  background-color: #2dad7f;
+  background-color: #2572a4;
   border: solid 1px #f7f7f7;
   border-radius: 2px;
   color: #f7f7f7;
@@ -93,7 +93,7 @@ body > main > header > aside > button.json:before {
 }
 body > main > section {
   margin: 0.5rem 0;
-  border: solid 1px #32c18e;
+  border: solid 1px #2a80b9;
   background-color: #ffffff;
   padding: 0;
   border-radius: 3px;
@@ -102,7 +102,7 @@ body > main > section > h1 {
   margin: 0 0 1rem 0;
   font-size: 1rem;
   padding: 0.4rem 0.5rem;
-  background-color: #32c18e;
+  background-color: #2a80b9;
   color: #f7f7f7;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
@@ -185,7 +185,7 @@ body > main > section.experience > ol {
   padding: 0.2rem 0;
 }
 body > main > section.experience > ol:after {
-  color: #444;
+  color: #2a80b9;
   display: block;
   width: 1.5rem;
   height: 1.5rem;
@@ -193,7 +193,7 @@ body > main > section.experience > ol:after {
   font-size: 1rem;
   content: "\f128";
   font-family: "Font Awesome 5 Free";
-  border: dashed 2px #32c18e;
+  border: dashed 2px #2a80b9;
   background-color: #fff;
   position: absolute;
   top: 0;
@@ -212,7 +212,7 @@ body > main > section.experience > ol:before {
   position: absolute;
   height: 100%;
   width: 2px;
-  border-left: 2px dotted #32c18e;
+  border-left: 2px dotted #2a80b9;
 }
 body > main > section.experience > ol > li {
   padding: 1.2rem 1rem 1.2rem 8.5rem;
@@ -265,7 +265,7 @@ body > main > section.experience > ol > li > div.logo {
   top: 50%;
   margin-top: -1rem;
   border-radius: 3px;
-  border: solid 1px #32c18e;
+  border: solid 1px #2a80b9;
 }
 body > main > section.experience > ol > li > div.logo:after {
   position: absolute;
@@ -278,7 +278,7 @@ body > main > section.experience > ol > li > div.logo:after {
   height: 0;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-left: 7px solid #32c18e;
+  border-left: 7px solid #2a80b9;
 }
 body > main > section.experience > ol > li > div.period {
   position: absolute;
@@ -288,7 +288,7 @@ body > main > section.experience > ol > li > div.period {
   font-size: 0.7rem;
   font-weight: bold;
   text-transform: uppercase;
-  background-image: linear-gradient(#32c18e, #32c18e);
+  background-image: linear-gradient(#2a80b9, #2a80b9);
   background-size: 2px 100%;
   background-repeat: no-repeat;
   background-origin: padding-box;
@@ -296,7 +296,7 @@ body > main > section.experience > ol > li > div.period {
   height: 100%;
   width: 6.5rem;
   box-sizing: border-box;
-  color: #32c18e;
+  color: #2a80b9;
 }
 body > main > section.experience > ol > li > div.period > time {
   display: block;
@@ -309,7 +309,7 @@ body > main > section.experience > ol > li > div.period > time:before {
   display: block;
   width: 6px;
   height: 6px;
-  border: solid 2px #32c18e;
+  border: solid 2px #2a80b9;
   border-radius: 10px;
   position: absolute;
   right: -16px;
