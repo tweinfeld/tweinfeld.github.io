@@ -145,7 +145,7 @@
                                     )),
                                     p({}, jobDescription),
                                     ul({ className: "tag" }, ...tag.map((tagId)=> tagData.find(({id}) => tagId === id)).sort(tagCategorySort).map((currentTag)=> {
-                                        let item = li({ className: [currentTag["category"], currentTag["website_url"] && "link"].filter(Boolean).join(' '), title: currentTag["description"] }, currentTag["name"]);
+                                        let item = li({ className: [currentTag["category"], currentTag["website_url"] && "link"].filter(Boolean).join(' '), title: ["name", "description"].map((fieldName)=> currentTag[fieldName]).join(': ') }, currentTag["name"]);
                                         currentTag["website_url"] && (item[CLICK_HANDLER] = launchUrlFactory(currentTag["website_url"]));
                                         return item;
                                     }))
