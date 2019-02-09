@@ -75,6 +75,9 @@ body > main section.contact > ol > li a[href]:after {
 body > main section.contact > ol > li.email:before {
   content: "Email: ";
 }
+body > main section.contact > ol > li.website:before {
+  content: "Website: ";
+}
 body > main section.contact > ol > li.social-linkedin:before {
   content: "Linkedin: ";
 }

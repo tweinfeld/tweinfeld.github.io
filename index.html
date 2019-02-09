@@ -48,7 +48,7 @@
                 })(["language", "runtime", "framework", "library"]);
                 identity = (x)=> x,
                 pipe = (...funcs)=> funcs.reduce((wrapperFunction, func)=> (arg)=> func(wrapperFunction(arg)), identity),
-                sendAnalyticsEvent = (eventName, str)=> (window["gtag"] || identity)('event', eventName, str && { "event_category": "general", "event_label": str }),
+                sendAnalyticsEvent = (eventName, str)=> (window["gtag"] || identity)('event', eventName, Object.assign({ "event_category": "general" }, str && { "event_label": str })),
                 launchUrlFactory = (url)=> (e)=> {
                     e.preventDefault();
                     window.open(url);
@@ -98,9 +98,10 @@
                     img({ src: profileData["photo"] }),
                     h1({}, profileData["full_name"]),
                     h2({}, "Data-Systems Architect, Javascript Developer"),
-                    aside({},
-                        Object.assign(button({ className: "print" }, 'Print'), { [CLICK_HANDLER]: window.print }),
-                    )
+                    aside({}, Object.assign(button({ className: "print" }, 'Print'), { [CLICK_HANDLER]: ()=> {
+                        sendAnalyticsEvent('print');
+                        window.print();
+                    }})),
                 ),
                 section(
                     { className: "fun" },
@@ -160,17 +161,19 @@
                     ol({}, ...referenceData.map((function(renderer){
                         return ({ id, ...rest })=> renderer[id]({ id, ...rest });
                     })(
-                        (function({ createSocial, createEmail, createPhone }){
+                        (function({ createWebsite, createSocial, createEmail, createPhone }){
                             return {
                                 "linkedin": createSocial,
                                 "github": createSocial,
                                 "email": createEmail,
-                                "phone": createPhone
+                                "phone": createPhone,
+                                "website": createWebsite
                             };
                         })({
+                            createWebsite: ({ website_url = "" })=> li({ className: "website" },Object.assign(a({ href: website_url }, (website_url.match(/^https?:\/\/([^/$]+)/) || ["", ""])[1]), { [CLICK_HANDLER]: launchUrlFactory(website_url) })),
                             createSocial: ({ id, title, website_url })=> li({ className: `social-${id}` }, Object.assign(a({ href: website_url }, title), { [CLICK_HANDLER]: launchUrlFactory(website_url) })),
-                            createEmail: ({ address })=> li({ className: `email` }, Object.assign(a({ href: `mailto:${address}` }, address), { [CLICK_HANDLER]: launchUrlFactory(`mailto:${address}`) })),
-                            createPhone: ({ number })=> li({ className: `phone` }, Object.assign(a({ href: `tel:${number}` }, number), { [CLICK_HANDLER]: launchUrlFactory(`tel:${number}`) }))
+                            createEmail: ({ address })=> li({ className: "email" }, Object.assign(a({ href: `mailto:${address}` }, address), { [CLICK_HANDLER]: launchUrlFactory(`mailto:${address}`) })),
+                            createPhone: ({ number })=> li({ className: "phone" }, Object.assign(a({ href: `tel:${number}` }, number), { [CLICK_HANDLER]: launchUrlFactory(`tel:${number}`) }))
                         })
                     )))
                 )
