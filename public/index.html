@@ -25,7 +25,9 @@
 
             const
                 MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-                CLICK_HANDLER = Symbol('ClickHandler');
+                CLICK_HANDLER = Symbol('ClickHandler'),
+                MOUSE_OVER_HANDLER = Symbol('MouseOver'),
+                MOUSE_OUT_HANDLER = Symbol('MouseOut');
 
             const
                 hash = function(str) {
@@ -53,8 +55,16 @@
                     e.preventDefault();
                     window.open(url);
                     sendAnalyticsEvent('visit_url', url);
-                };
-
+                },
+                bus = (function(){
+                    let listeners = {};
+                    return {
+                        on: (event, handler)=> (listeners[event] = (listeners[event] || [])).push(handler),
+                        off: (event, handler)=> listeners[event] = (listeners[event] || []).filter((existingHandler)=> existingHandler !== handler),
+                        trigger: (event, payload)=> (listeners[event] || []).forEach((listener)=> listener(payload))
+                    };
+                })(),
+                sendUiEvent = bus.trigger;
 
             const
                 rootEl = document.querySelector('body'),
@@ -90,7 +100,7 @@
                     Array.prototype.concat.apply([], children).forEach((child)=> el.appendChild((typeof child === 'string') ? document.createTextNode(child) : child));
                     return el;
                 },
-                [main, button, a, aside, em, header, section, h1, h2, span, time, p, img, ol, li, div, ul] = ["main", "button", "a", "aside", "em", "header", "section", "h1", "h2", "span", "time", "p", "img", "ol", "li", "div", "ul"].map(htmlTagFactory);
+                [main, button, sub, a, aside, em, header, section, h1, h2, span, time, p, img, ol, li, div, ul] = ["main", "button", "sub", "a", "aside", "em", "header", "section", "h1", "h2", "span", "time", "p", "img", "ol", "li", "div", "ul"].map(htmlTagFactory);
 
             let mainEl = main(
                 {},
@@ -102,11 +112,6 @@
                         sendAnalyticsEvent('print');
                         window.print();
                     }})),
-                ),
-                section(
-                    { className: "fun" },
-                    h1({}, 'Fun Fact'),
-                    p({}, 'This page\'s code (CSS and Javascript) was authored without the use of ', em({}, 'any'), ' frameworks (\"Vanilla\"). ', Object.assign(a({ href: "https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html" }, 'Go ahead! Check it out for yourself.'), { [CLICK_HANDLER]: launchUrlFactory('https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html') }))
                 ),
                 section(
                     { className: "experience" },
@@ -145,7 +150,16 @@
                                     )),
                                     p({}, jobDescription),
                                     ul({ className: "tag" }, ...tag.map((tagId)=> tagData.find(({id}) => tagId === id)).sort(tagCategorySort).map((currentTag)=> {
-                                        let item = li({ className: [currentTag["category"], currentTag["website_url"] && "link"].filter(Boolean).join(' '), title: ["name", "description"].map((fieldName)=> currentTag[fieldName]).join(': ') }, currentTag["name"]);
+                                        let item = Object.assign(li(
+                                            {
+                                                className: [currentTag["category"], currentTag["website_url"] && "link"].filter(Boolean).join(' '),
+                                                title: ["name", "description"].map((fieldName)=> currentTag[fieldName]).join(': ')
+                                            },
+                                            currentTag["name"]
+                                        ), {
+                                            [MOUSE_OUT_HANDLER]: ()=> sendUiEvent('hidetip'),
+                                            [MOUSE_OVER_HANDLER]: ({ target })=> sendUiEvent('showtip', { rect: target.getBoundingClientRect(), title: currentTag["name"], description: currentTag["description"] }),
+                                        });
                                         currentTag["website_url"] && (item[CLICK_HANDLER] = launchUrlFactory(currentTag["website_url"]));
                                         return item;
                                     }))
@@ -156,8 +170,8 @@
                 ),
                 section(
                     { className: "contact" },
-                    h1({}, 'Online Presence & Contact Information'),
-                    p({}, 'Find out more information and contact me:'),
+                    h1({}, 'More'),
+                    p({}, 'Find out more information and contact me on these links:'),
                     ol({}, ...referenceData.map((function(renderer){
                         return ({ id, ...rest })=> renderer[id]({ id, ...rest });
                     })(
@@ -176,17 +190,22 @@
                             createPhone: ({ number })=> li({ className: "phone" }, Object.assign(a({ href: `tel:${number}` }, number), { [CLICK_HANDLER]: launchUrlFactory(`tel:${number}`) }))
                         })
                     )))
-                )
+                ),
+                sub({}, p({}, em({}, 'Fun Fact: '), 'This page\'s code (JS and CSS) was written without the use of ', em({}, 'any'), ' frameworks (\"Vanilla\"). ', Object.assign(a({ href: "https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html" }, 'Go ahead! Check it out for yourself.'), { [CLICK_HANDLER]: launchUrlFactory('https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html') })))
             );
 
-            mainEl.addEventListener('click', function(e){
-                let handler = e.target[CLICK_HANDLER];
-                e.target.nodeName === "A" && e.preventDefault();
-                ((handler && pipe(handler, ()=> { e.stopImmediatePropagation(); })) || identity)(e);
-            }, false);
+            const
+                blockLinks = (e)=> { e.target.nodeName === "A" && e.preventDefault(); return e; },
+                stopPropagation = (e)=> { e.stopImmediatePropagation(); return e; },
+                invokeHandler = (symbolName)=> (e)=> { (e.target[symbolName] || identity)(e); return e; };
+
+            [
+                { eventName: "click", handler: pipe(blockLinks, stopPropagation, invokeHandler(CLICK_HANDLER)) },
+                { eventName: "mouseover", handler: invokeHandler(MOUSE_OVER_HANDLER) },
+                { eventName: "mouseout", handler: invokeHandler(MOUSE_OUT_HANDLER) }
+            ].forEach(({ eventName, handler })=> mainEl.addEventListener(eventName, handler, false));
 
             rootEl.append(mainEl);
-
         })();
     </script>
 </body>

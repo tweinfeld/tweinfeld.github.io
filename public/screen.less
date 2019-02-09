@@ -1,11 +1,12 @@
 @theme-color-1: #444;
 @theme-color-2: #f7f7f7;
-@theme-color-3: #999;
+@theme-color-3: #f39c11;
 @theme-color-4: #2dcc70;
+@theme-color-5: #1bbc9b;
 @theme-font-1: 'Karla', sans-serif;
 @theme-font-2: "Font Awesome 5 Free";
 @theme-font-3: "Font Awesome 5 Brands";
-@theme-border-radius: 3px;
+@theme-border-radius: 2px;
 
 html {
   height: 100%;
@@ -24,27 +25,24 @@ a:hover {
 }
 
 body {
-  padding: 1rem;
-  margin: 0;
+  margin: 0.5rem;
+  padding: 0;
   background-color: @theme-color-2;
   color: @theme-color-1;
   font-family: @theme-font-1;
 
   > main {
 
-    > header, section {
-      box-shadow: 0 0 2px rgba(0,0,0,0.2);
-    }
-
     > header {
 
-      border-radius: 3px;
+      border-radius: @theme-border-radius;
       position: relative;
       padding: 1.5rem 0 1.5rem 6rem;
-      background-color: @theme-color-3;
+      background-color: @theme-color-1;
       color: @theme-color-2;
       margin: 0.5rem 0;
       overflow: hidden;
+      //border: solid 1px @theme-color-3;
 
       > img {
         position: absolute;
@@ -69,7 +67,7 @@ body {
 
       > h1 {
         font-size: 1.6rem;
-        line-height: 1.8rem;
+        line-height: 2rem;
       }
 
       > aside {
@@ -114,7 +112,7 @@ body {
 
     > section {
       margin: 0.5rem 0;
-      border: solid 1px @theme-color-3;
+      border: solid 1px @theme-color-1;
       background-color: lighten(@theme-color-2, 55%);
       padding: 0;
       border-radius: @theme-border-radius;
@@ -123,10 +121,9 @@ body {
         margin: 0 0 1rem 0;
         font-size: 1rem;
         padding: 0.4rem 0.5rem;
-        background-color: @theme-color-3;
+        background-color: @theme-color-1;
         color: @theme-color-2;
         text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
-        text-transform: uppercase;
 
         &:before {
           font-size: 90%;
@@ -154,7 +151,7 @@ body {
 
         > h1 {
           &:before {
-            content: "\f095";
+            content: "\f0a4";
           }
         }
 
@@ -210,16 +207,6 @@ body {
               color: #27ae61;
             }
           }
-        }
-      }
-
-      &.fun {
-        > h1:before {
-          content: "\f0fc";
-        }
-
-        > p > em {
-          font-weight: bold;
         }
       }
 
@@ -328,7 +315,7 @@ body {
               top: 50%;
               margin-top: -1rem;
               border-radius: @theme-border-radius;
-              border: solid 1px @theme-color-3;
+              border: solid 1px @theme-color-5;
 
               &:after {
                 position: absolute;
@@ -341,7 +328,7 @@ body {
                 height: 0;
                 border-top: 5px solid transparent;
                 border-bottom: 5px solid transparent;
-                border-left: 7px solid @theme-color-3;
+                border-left: 7px solid @theme-color-5;
               }
             }
 
@@ -354,7 +341,7 @@ body {
               font-size: 0.7rem;
               font-weight: bold;
               text-transform: uppercase;
-              background-image: linear-gradient(@theme-color-4, @theme-color-4);
+              background-image: linear-gradient(@theme-color-4, #1bbc9b, @theme-color-4);
               background-size: 2px 100%;
               background-repeat: no-repeat;
               background-origin: padding-box;
@@ -362,7 +349,7 @@ body {
               height: 100%;
               width: 6.5rem;
               box-sizing: border-box;
-              color: @theme-color-3;
+              color: @theme-color-4;
 
               > time {
                 display: block;
@@ -391,6 +378,31 @@ body {
               }
             }
           }
+        }
+      }
+    }
+
+    > sub {
+      margin: 0 0;
+      padding: 0.5rem 0;
+      display: block;
+
+      > p {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-size: 0.8rem;
+
+        &:before {
+          font-family: @theme-font-2;
+          font-weight: bold;
+          content: "\f0fc";
+          margin-right: 0.2rem;
+        }
+
+        > em {
+          font-style: normal;
+          font-weight: bold;
         }
       }
     }
