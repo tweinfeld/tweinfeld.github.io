@@ -1,7 +1,7 @@
 <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
 <style>
 	path, rect {
-		fill: #999;
+		fill: #1bbc9b;
 	}
 	g.sprite {
 		display: none;

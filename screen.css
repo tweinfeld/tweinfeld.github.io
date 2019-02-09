@@ -14,21 +14,17 @@ a:hover {
   text-decoration: underline;
 }
 body {
-  padding: 1rem;
-  margin: 0;
+  margin: 0.5rem;
+  padding: 0;
   background-color: #f7f7f7;
   color: #444;
   font-family: 'Karla', sans-serif;
 }
-body > main > header,
-body > main section {
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-}
 body > main > header {
-  border-radius: 3px;
+  border-radius: 2px;
   position: relative;
   padding: 1.5rem 0 1.5rem 6rem;
-  background-color: #999;
+  background-color: #444;
   color: #f7f7f7;
   margin: 0.5rem 0;
   overflow: hidden;
@@ -55,7 +51,7 @@ body > main > header > h2 {
 }
 body > main > header > h1 {
   font-size: 1.6rem;
-  line-height: 1.8rem;
+  line-height: 2rem;
 }
 body > main > header > aside {
   text-align: right;
@@ -68,7 +64,7 @@ body > main > header > aside {
   box-sizing: border-box;
 }
 body > main > header > aside > button {
-  background-color: #8c8c8c;
+  background-color: #df8e0b;
   border: solid 1px #f7f7f7;
   border-radius: 2px;
   color: #f7f7f7;
@@ -93,19 +89,18 @@ body > main > header > aside > button.json:before {
 }
 body > main > section {
   margin: 0.5rem 0;
-  border: solid 1px #999;
+  border: solid 1px #444;
   background-color: #ffffff;
   padding: 0;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 body > main > section > h1 {
   margin: 0 0 1rem 0;
   font-size: 1rem;
   padding: 0.4rem 0.5rem;
-  background-color: #999;
+  background-color: #444;
   color: #f7f7f7;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
-  text-transform: uppercase;
 }
 body > main > section > h1:before {
   font-size: 90%;
@@ -126,7 +121,7 @@ body > main > section.contact > p {
   padding: 0 1rem;
 }
 body > main > section.contact > h1:before {
-  content: "\f095";
+  content: "\f0a4";
 }
 body > main > section.contact > ol {
   text-align: left;
@@ -173,12 +168,6 @@ body > main > section.contact > ol > li.website:before {
   font-family: "Font Awesome 5 Free";
   content: "\f360";
   color: #27ae61;
-}
-body > main > section.fun > h1:before {
-  content: "\f0fc";
-}
-body > main > section.fun > p > em {
-  font-weight: bold;
 }
 body > main > section.experience > h1:before {
   content: "\f017";
@@ -269,8 +258,8 @@ body > main > section.experience > ol > li > div.logo {
   left: 0.8rem;
   top: 50%;
   margin-top: -1rem;
-  border-radius: 3px;
-  border: solid 1px #999;
+  border-radius: 2px;
+  border: solid 1px #1bbc9b;
 }
 body > main > section.experience > ol > li > div.logo:after {
   position: absolute;
@@ -283,7 +272,7 @@ body > main > section.experience > ol > li > div.logo:after {
   height: 0;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-left: 7px solid #999;
+  border-left: 7px solid #1bbc9b;
 }
 body > main > section.experience > ol > li > div.period {
   position: absolute;
@@ -293,7 +282,7 @@ body > main > section.experience > ol > li > div.period {
   font-size: 0.7rem;
   font-weight: bold;
   text-transform: uppercase;
-  background-image: linear-gradient(#2dcc70, #2dcc70);
+  background-image: linear-gradient(#2dcc70, #1bbc9b, #2dcc70);
   background-size: 2px 100%;
   background-repeat: no-repeat;
   background-origin: padding-box;
@@ -301,7 +290,7 @@ body > main > section.experience > ol > li > div.period {
   height: 100%;
   width: 6.5rem;
   box-sizing: border-box;
-  color: #999;
+  color: #2dcc70;
 }
 body > main > section.experience > ol > li > div.period > time {
   display: block;
@@ -325,6 +314,27 @@ body > main > section.experience > ol > li > div.period > time:last-of-type {
 }
 body > main > section.experience > ol > li > div.period > time:first-of-type {
   bottom: 10px;
+}
+body > main > sub {
+  margin: 0 0;
+  padding: 0.5rem 0;
+  display: block;
+}
+body > main > sub > p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 0.8rem;
+}
+body > main > sub > p:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: bold;
+  content: "\f0fc";
+  margin-right: 0.2rem;
+}
+body > main > sub > p > em {
+  font-style: normal;
+  font-weight: bold;
 }
 ul.tag {
   list-style: none;

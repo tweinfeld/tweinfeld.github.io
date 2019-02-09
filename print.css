@@ -12,6 +12,9 @@ body {
   margin: 0;
   padding: 0;
 }
+body > main > sub {
+  display: none;
+}
 body > main > header {
   padding: 1rem;
   background-color: #000;
