@@ -24,6 +24,42 @@ a:hover {
   text-decoration: underline;
 }
 
+div.tip {
+  background-color: rgba(0,0,0,0.8);
+  color: @theme-color-2;
+  max-width: 10rem;
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  transform: translate(-50%, -100%);
+  opacity: 0;
+  padding: 0.5rem;
+  margin-top: -0.8rem;
+  text-align: center;
+  transition: opacity 0.2s;
+  &.active {
+    opacity: 1;
+  }
+
+  &:after {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    border-top: 5px solid rgba(0,0,0,0.8);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+
+}
+
 body {
   margin: 0.5rem;
   padding: 0;
@@ -52,7 +88,7 @@ body {
         width: 4rem;
         height: 4rem;
         border: solid 2px @theme-color-2;
-        z-index: 999;
+        z-index: 100;
         transform: translateY(-50%);
         box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
       }
@@ -420,9 +456,9 @@ ul.tag {
     background-color: #bfbfbf;
     border-radius: 2px;
     font-size: 0.8rem;
+    cursor: pointer;
 
     &.link {
-      cursor: pointer;
       &:after {
         font-family: @theme-font-2;
         content: "\f360";
