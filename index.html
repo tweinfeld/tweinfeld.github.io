@@ -19,14 +19,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/brands.css">
 </head>
 <body>
-    <main></main>
     <script>
         (async function(){
 
             const
                 MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
                 [SYMBOL_CLICK_HANDLER, SYMBOL_OVER_HANDLER, SYMBOL_OUT_HANDLER] = ["ClickHandler", "MouseOver", "MouseOut"].map((id)=> Symbol(id)),
-                [EVENT_VISIT_URL, EVENT_PRINT] = ["visit_url", "print"];
+                [EVENT_URL_CLICK, EVENT_PRINT_CLICK] = ["visit_url", "print"];
 
             const
                 hash = function(str) {
@@ -45,7 +44,6 @@
                         });
                         return (ordA - ordB) || (a["name"] > b["name"] ? 1 : [a["name"] < b["name"] ? -1 : 0]);
                     }
-
                 })(["language", "runtime", "framework", "library"]);
                 identity = (x)=> x,
                 pipe = (...funcs)=> funcs.reduce((wrapperFunction, func)=> (arg)=> func(wrapperFunction(arg)), identity),
@@ -101,7 +99,7 @@
                     img({ src: profileData["photo"] }),
                     h1({}, profileData["full_name"]),
                     h2({}, "Data-Systems Architect, Javascript Developer"),
-                    aside({}, Object.assign(button({ className: "print" }, 'Print'), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_PRINT, null) })),
+                    aside({}, Object.assign(button({ className: "print" }, 'Print'), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_PRINT_CLICK, null) })),
                 ),
                 section(
                     { className: "experience" },
@@ -125,7 +123,7 @@
                                         style: `background-image: url(logos.svg#${companyId});`
                                     }),
                                     h1({ title: [position, employmentType === "freelance" && "(as freelancer)"].filter(Boolean).join(' ') }, position),
-                                    Object.assign(h2({}, company["name"]), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_VISIT_URL, company["website_url"]) }),
+                                    Object.assign(h2({}, company["name"]), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_URL_CLICK, company["website_url"]) }),
                                     div({ className: "period" }, ...employmentPeriod.map(
                                         (date)=> date
                                             ? time({ datetime: date }, `${[
@@ -136,17 +134,14 @@
                                     )),
                                     p({}, jobDescription),
                                     ul({ className: "tag" }, ...tag.map((tagId)=> tagData.find(({id}) => tagId === id)).sort(tagCategorySort).map((currentTag)=> {
-                                        let item = Object.assign(li(
+                                        let item = li(
                                             {
                                                 className: [currentTag["category"], currentTag["website_url"] && "link"].filter(Boolean).join(' '),
                                                 title: ["name", "description"].map((fieldName)=> currentTag[fieldName]).join(': ')
                                             },
                                             currentTag["name"]
-                                        ), {
-                                            [SYMBOL_OUT_HANDLER]: ()=> sendUiEvent('hidetip'),
-                                            [SYMBOL_OVER_HANDLER]: ({ target })=> sendUiEvent('showtip', { rect: target.getBoundingClientRect(), title: currentTag["name"], description: currentTag["description"] }),
-                                        });
-                                        currentTag["website_url"] && (item[SYMBOL_CLICK_HANDLER] = sendUiEvent.bind(null, EVENT_VISIT_URL, currentTag["website_url"]));
+                                        );
+                                        currentTag["website_url"] && (item[SYMBOL_CLICK_HANDLER] = sendUiEvent.bind(null, EVENT_URL_CLICK, currentTag["website_url"]));
                                         return item;
                                     }))
                                 ].filter(Boolean)
@@ -170,14 +165,14 @@
                                 "website": createWebsite
                             };
                         })({
-                            createWebsite: ({ website_url = "" })=> li({ className: "website" },Object.assign(a({ href: website_url }, (website_url.match(/^https?:\/\/([^/$]+)/) || ["", ""])[1]), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_VISIT_URL, website_url) })),
-                            createSocial: ({ id, title, website_url })=> li({ className: `social-${id}` }, Object.assign(a({ href: website_url }, title), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_VISIT_URL, website_url) })),
-                            createEmail: ({ address })=> li({ className: "email" }, Object.assign(a({ href: `mailto:${address}` }, address), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_VISIT_URL, `mailto:${address}`) })),
-                            createPhone: ({ number })=> li({ className: "phone" }, Object.assign(a({ href: `tel:${number}` }, number), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_VISIT_URL, `tel:${number}`) }))
+                            createWebsite: ({ website_url = "" })=> li({ className: "website" },Object.assign(a({ href: website_url }, (website_url.match(/^https?:\/\/([^/$]+)/) || ["", ""])[1]), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_URL_CLICK, website_url) })),
+                            createSocial: ({ id, title, website_url })=> li({ className: `social-${id}` }, Object.assign(a({ href: website_url }, title), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_URL_CLICK, website_url) })),
+                            createEmail: ({ address })=> li({ className: "email" }, Object.assign(a({ href: `mailto:${address}` }, address), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_URL_CLICK, `mailto:${address}`) })),
+                            createPhone: ({ number })=> li({ className: "phone" }, Object.assign(a({ href: `tel:${number}` }, number), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_URL_CLICK, `tel:${number}`) }))
                         })
                     )))
                 ),
-                sub({}, p({}, em({}, 'Fun Fact: '), 'This page\'s code (JS and CSS) was written without the use of ', em({}, 'any'), ' frameworks (\"Vanilla\"). ', Object.assign(a({ href: "https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html" }, 'Go ahead! Check it out for yourself.'), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_VISIT_URL, 'https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html') })))
+                sub({}, p({}, em({}, 'Fun Fact: '), 'This page\'s code (JS and CSS) was written without the use of ', em({}, 'any'), ' frameworks (\"Vanilla\"). ', Object.assign(a({ href: "https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html" }, 'Go ahead! Check it out for yourself.'), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_URL_CLICK, 'https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html') })))
             );
 
             // Reactivity
@@ -192,11 +187,11 @@
                 { eventName: "mouseout", handler: invokeHandler(SYMBOL_OUT_HANDLER) }
             ].forEach(({ eventName, handler })=> mainEl.addEventListener(eventName, handler, false));
 
-            uiBus.on(EVENT_VISIT_URL, window.open.bind(window));
-            uiBus.on(EVENT_PRINT, window.print.bind(window));
+            uiBus.on(EVENT_URL_CLICK, window.open.bind(window));
+            uiBus.on(EVENT_PRINT_CLICK, window.print.bind(window));
 
             // Reactivity: Analytics
-            [EVENT_VISIT_URL, EVENT_PRINT].forEach((eventName)=> uiBus.on(eventName, sendAnalyticsEvent.bind(null, eventName)));
+            [EVENT_URL_CLICK, EVENT_PRINT_CLICK].forEach((eventName)=> uiBus.on(eventName, sendAnalyticsEvent.bind(null, eventName)));
 
             rootEl.append(mainEl);
 
