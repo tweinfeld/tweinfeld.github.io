@@ -1,5 +1,10 @@
 [
   {
+    "id": "lusha",
+    "name": "Lusha",
+    "website_url": "https://lusha.co/"
+  },
+  {
     "id": "codefresh",
     "name": "Codefresh",
     "website_url": "https://codefresh.io/"

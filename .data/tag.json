@@ -231,5 +231,12 @@
     "category": "library",
     "description": "Actionscript MVC library",
     "website_url": "http://puremvc.org/"
+  },
+  {
+    "id": "opencv",
+    "name": "OpenCV",
+    "category": "library",
+    "description": "Visual-Algorithms library",
+    "website_url": "https://opencv.org/"
   }
 ]

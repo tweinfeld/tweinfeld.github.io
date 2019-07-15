@@ -4,6 +4,14 @@
   "tagline": "Data-Systems Architect, Javascript Developer",
   "experience": [
     {
+      "position": "Senior Developer",
+      "company_id": "lusha",
+      "employment_period": ["2019/04"],
+      "employment_type": "full-time",
+      "job_description": "Leading the company's open-source data sourcing endeavours",
+      "tag": ["javascript", "kefirjs", "reactjs", "expressjs", "docker", "nodejs", "lodash", "graylog", "kubernetes", "elastic", "rabbitmq", "browser", "aws", "opencv"]
+    },
+    {
       "position": "Principal Developer",
       "company_id": "codefresh",
       "employment_period": ["2017/03", "2019/02"],
