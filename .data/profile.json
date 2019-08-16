@@ -8,8 +8,8 @@
       "company_id": "lusha",
       "employment_period": ["2019/04"],
       "employment_type": "full-time",
-      "job_description": "Leading the company's open-source data sourcing endeavours",
-      "tag": ["javascript", "kefirjs", "reactjs", "expressjs", "docker", "nodejs", "lodash", "graylog", "kubernetes", "elastic", "rabbitmq", "browser", "aws", "opencv"]
+      "job_description": "Lead the company's open-source data sourcing endeavours",
+      "tag": ["javascript", "gc", "cassandra", "kefirjs", "reactjs", "expressjs", "docker", "nodejs", "lodash", "graylog", "kubernetes", "elastic", "rabbitmq", "browser", "aws", "opencv"]
     },
     {
       "position": "Principal Developer",

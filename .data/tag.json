@@ -68,6 +68,13 @@
     "website_url": "https://www.mysql.com/"
   },
   {
+    "id": "cassandra",
+    "name": "Cassandra",
+    "category": "data_service",
+    "description": "Open source database",
+    "website_url": "https://cassandra.apache.org/"
+  },
+  {
     "id": "postgresql",
     "name": "PostgreSQL",
     "category": "data_service",
@@ -156,6 +163,13 @@
     "category": "data_service",
     "description": "Data warehouse and search engine service",
     "website_url": "https://aws.amazon.com/redshift/"
+  },
+  {
+    "id": "gc",
+    "name": "Google Cloud",
+    "category": "cloud_provider",
+    "description": "Cloud computing services",
+    "website_url":  "https://cloud.google.com/"
   },
   {
     "id": "aws",
