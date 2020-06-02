@@ -5,10 +5,18 @@
   "experience": [
     {
       "position": "Senior Developer",
-      "company_id": "lusha",
-      "employment_period": ["2019/04"],
+      "company_id": "vonage",
+      "employment_period": ["2020/06"],
       "employment_type": "full-time",
-      "job_description": "Lead the company's open-source data sourcing endeavours",
+      "job_description": "Took part it a large scale cross-company UI consolidation project",
+      "tag": ["javascript", "typescript", "reactjs", "browser", "lodash", "ramda", "expressjs", "nodejs", "reactivex"]
+    },
+    {
+      "position": "Senior Developer",
+      "company_id": "lusha",
+      "employment_period": ["2019/04", "2020/05"],
+      "employment_type": "full-time",
+      "job_description": "Lead the company's open-source data sourcing endeavours, written advanced algorithms for scraping unstructured data. Took part in a plethora of small web projects.",
       "tag": ["javascript", "gc", "cassandra", "kefirjs", "reactjs", "expressjs", "docker", "nodejs", "lodash", "graylog", "kubernetes", "elastic", "rabbitmq", "browser", "aws", "opencv"]
     },
     {

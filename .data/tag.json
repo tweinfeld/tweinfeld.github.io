@@ -6,6 +6,13 @@
     "description": "Programming language"
   },
   {
+    "id": "typescript",
+    "name": "Typescript",
+    "category": "language",
+    "description": "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.",
+    "website_url": "https://www.typescriptlang.org/"
+  },
+  {
     "id": "kefirjs",
     "name": "Kefir.js",
     "category": "library",

@@ -1,5 +1,10 @@
 [
   {
+    "id": "vonage",
+    "name": "Vonage",
+    "website_url": "https://www.vonage.com/"
+  },
+  {
     "id": "lusha",
     "name": "Lusha",
     "website_url": "https://lusha.co/"
