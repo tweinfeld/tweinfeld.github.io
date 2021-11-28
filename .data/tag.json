@@ -1,5 +1,12 @@
 [
   {
+    "id": "lit",
+    "name": "Lit",
+    "category": "library",
+    "description": "Web components authoring library",
+    "website_url": "https://lit.dev/"
+  },
+  {
     "id": "javascript",
     "name": "Javascript",
     "category": "language",

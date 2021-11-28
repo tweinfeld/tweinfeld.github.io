@@ -4,19 +4,19 @@
   "tagline": "Data-Systems Architect, Javascript Developer",
   "experience": [
     {
-      "position": "Senior Developer",
+      "position": "Senior Front-End Developer",
       "company_id": "vonage",
       "employment_period": ["2020/06"],
       "employment_type": "full-time",
-      "job_description": "Took part in a large scale cross-company UI consolidation project",
-      "tag": ["javascript", "typescript", "reactjs", "browser", "lodash", "ramda", "expressjs", "nodejs", "reactivex"]
+      "job_description": "Took part in a technological leadership group providing infrastructure solutions to Front-end teams across Vonage.",
+      "tag": ["javascript", "typescript", "reactjs", "browser", "lodash", "ramda", "expressjs", "nodejs", "reactivex", "lit"]
     },
     {
       "position": "Senior Developer",
       "company_id": "lusha",
       "employment_period": ["2019/04", "2020/05"],
       "employment_type": "full-time",
-      "job_description": "Lead the company's open-source data sourcing endeavours, written advanced algorithms for scraping unstructured data. Took part in a plethora of small web projects.",
+      "job_description": "Led the company's data sourcing endeavours, written advanced algorithms for acquiring unstructured data from public sources. Took part in a plethora of web projects.",
       "tag": ["javascript", "gc", "cassandra", "kefirjs", "reactjs", "expressjs", "docker", "nodejs", "lodash", "graylog", "kubernetes", "elastic", "rabbitmq", "browser", "aws", "opencv"]
     },
     {
@@ -24,7 +24,7 @@
       "company_id": "codefresh",
       "employment_period": ["2017/03", "2019/02"],
       "employment_type": "full-time",
-      "job_description": "Reviewed and revised the design of core system elements. Founded fresh code-bases for various projects.",
+      "job_description": "Led Codefresh's technological growth. Guided all product teams through architecture guidelines assimilation.",
       "tag": ["javascript", "kefirjs", "reactjs", "expressjs", "nodejs", "lodash", "postgresql", "kubernetes", "docker", "helm", "rabbitmq", "browser", "aws"]
     },
     {
