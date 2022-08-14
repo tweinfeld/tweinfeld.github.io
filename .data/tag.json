@@ -1,5 +1,12 @@
 [
   {
+    "id": "playwright",
+    "name": "Playwright",
+    "category": "application_framework",
+    "description": "End-to-End testing framework",
+    "website_url": "https://playwright.dev/"
+  },
+  {
     "id": "lit",
     "name": "Lit",
     "category": "library",
@@ -183,7 +190,7 @@
     "name": "Google Cloud",
     "category": "cloud_provider",
     "description": "Cloud computing services",
-    "website_url":  "https://cloud.google.com/"
+    "website_url": "https://cloud.google.com/"
   },
   {
     "id": "aws",

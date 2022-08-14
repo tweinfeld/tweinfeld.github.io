@@ -5,67 +5,207 @@
   "experience": [
     {
       "position": "Senior Front-End Developer",
+      "company_id": "taboola",
+      "employment_period": [
+        "2022/01"
+      ],
+      "employment_type": "full-time",
+      "job_description": "Designed a front-end visual testing framework using Playwright and custom fixtures.",
+      "tag": [
+        "javascript",
+        "reactjs",
+        "browser",
+        "lodash",
+        "ramda",
+        "expressjs",
+        "nodejs",
+        "kefirjs",
+        "playwright"
+      ]
+    },
+    {
+      "position": "Senior Front-End Developer",
       "company_id": "vonage",
-      "employment_period": ["2020/06"],
+      "employment_period": [
+        "2020/06",
+        "2021/12"
+      ],
       "employment_type": "full-time",
       "job_description": "Took part in a technological leadership group providing infrastructure solutions to Front-end teams across Vonage.",
-      "tag": ["javascript", "typescript", "reactjs", "browser", "lodash", "ramda", "expressjs", "nodejs", "reactivex", "lit"]
+      "tag": [
+        "javascript",
+        "typescript",
+        "reactjs",
+        "browser",
+        "lodash",
+        "ramda",
+        "expressjs",
+        "nodejs",
+        "reactivex",
+        "lit"
+      ]
     },
     {
       "position": "Senior Developer",
       "company_id": "lusha",
-      "employment_period": ["2019/04", "2020/05"],
+      "employment_period": [
+        "2019/04",
+        "2020/05"
+      ],
       "employment_type": "full-time",
       "job_description": "Led the company's data sourcing endeavours, written advanced algorithms for acquiring unstructured data from public sources. Took part in a plethora of web projects.",
-      "tag": ["javascript", "gc", "cassandra", "kefirjs", "reactjs", "expressjs", "docker", "nodejs", "lodash", "graylog", "kubernetes", "elastic", "rabbitmq", "browser", "aws", "opencv"]
+      "tag": [
+        "javascript",
+        "gc",
+        "cassandra",
+        "kefirjs",
+        "reactjs",
+        "expressjs",
+        "docker",
+        "nodejs",
+        "lodash",
+        "graylog",
+        "kubernetes",
+        "elastic",
+        "rabbitmq",
+        "browser",
+        "aws",
+        "opencv"
+      ]
     },
     {
       "position": "Principal Developer",
       "company_id": "codefresh",
-      "employment_period": ["2017/03", "2019/02"],
+      "employment_period": [
+        "2017/03",
+        "2019/02"
+      ],
       "employment_type": "full-time",
       "job_description": "Led Codefresh's technological growth. Guided all product teams through architecture guidelines assimilation.",
-      "tag": ["javascript", "kefirjs", "reactjs", "expressjs", "nodejs", "lodash", "postgresql", "kubernetes", "docker", "helm", "rabbitmq", "browser", "aws"]
+      "tag": [
+        "javascript",
+        "kefirjs",
+        "reactjs",
+        "expressjs",
+        "nodejs",
+        "lodash",
+        "postgresql",
+        "kubernetes",
+        "docker",
+        "helm",
+        "rabbitmq",
+        "browser",
+        "aws"
+      ]
     },
     {
       "position": "System Architect",
       "company_id": "bitmain",
-      "employment_period": ["2016/07", "2017/02"],
+      "employment_period": [
+        "2016/07",
+        "2017/02"
+      ],
       "employment_type": "freelance",
       "job_description": "Designed and coded a Bitcoin mining pool system using NodeJS, Postgres, GrayLog, ElasticSearch, RabbitMQ.",
-      "tag": ["javascript", "nodejs","expressjs", "reactjs", "kefirjs", "docker", "elastic", "mysql", "rabbitmq", "browser", "kubernetes", "aws", "graylog"]
+      "tag": [
+        "javascript",
+        "nodejs",
+        "expressjs",
+        "reactjs",
+        "kefirjs",
+        "docker",
+        "elastic",
+        "mysql",
+        "rabbitmq",
+        "browser",
+        "kubernetes",
+        "aws",
+        "graylog"
+      ]
     },
     {
       "position": "Consultant",
       "company_id": "tikal",
-      "employment_period": ["2015/03", "2016/05"],
+      "employment_period": [
+        "2015/03",
+        "2016/05"
+      ],
       "employment_type": "freelance",
       "job_description": "Took part in multiple Tikal projects, consulting and developing in Javascript, React, RxJS, KefirJS, BaconJS and test frameworks",
-      "tag": ["javascript", "nodejs", "expressjs", "jasmine", "reactjs", "baconjs", "browser", "rabbitmq", "tape", "reactivex", "baconjs", "aws"]
+      "tag": [
+        "javascript",
+        "nodejs",
+        "expressjs",
+        "jasmine",
+        "reactjs",
+        "baconjs",
+        "browser",
+        "rabbitmq",
+        "tape",
+        "reactivex",
+        "baconjs",
+        "aws"
+      ]
     },
     {
       "position": "Lead Developer",
       "company_id": "ironsource",
-      "employment_period": ["2013/03", "2015/01"],
+      "employment_period": [
+        "2013/03",
+        "2015/01"
+      ],
       "employment_type": "freelance",
       "job_description": "Designed and written pure Javascript code for an ad-delivery (\"publisher snippet\") project (\"CAST\"). Constructed a modular system for supporting multiple types of ads, devices and networks",
-      "tag": ["javascript", "nodejs", "browser", "baconjs", "backbone", "redshift", "angular", "aws", "azure", "gulp", "marionette"]
+      "tag": [
+        "javascript",
+        "nodejs",
+        "browser",
+        "baconjs",
+        "backbone",
+        "redshift",
+        "angular",
+        "aws",
+        "azure",
+        "gulp",
+        "marionette"
+      ]
     },
     {
       "position": "Lead Developer",
       "company_id": "initech",
-      "employment_period": ["2012/11", "2013/02"],
+      "employment_period": [
+        "2012/11",
+        "2013/02"
+      ],
       "employment_type": "freelance",
       "job_description": "Developed a JS/HTML5 web-mobile game. Handled many early-days mobile web environment challenges",
-      "tag": ["easeljs", "javascript", "browser", "gulp", "grunt", "backbone"]
+      "tag": [
+        "easeljs",
+        "javascript",
+        "browser",
+        "gulp",
+        "grunt",
+        "backbone"
+      ]
     },
     {
       "position": "Web Developer",
       "company_id": "appnext",
-      "employment_period": ["2011/03", "2012/10"],
+      "employment_period": [
+        "2011/03",
+        "2012/10"
+      ],
       "employment_type": "freelance",
       "job_description": "Web-based gaming project",
-      "tag": ["javascript", "browser", "nodejs", "flash", "actionscript", "puremvc", "mysql"]
+      "tag": [
+        "javascript",
+        "browser",
+        "nodejs",
+        "flash",
+        "actionscript",
+        "puremvc",
+        "mysql"
+      ]
     }
   ],
   "reference": [

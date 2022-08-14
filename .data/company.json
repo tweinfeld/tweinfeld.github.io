@@ -1,5 +1,15 @@
 [
   {
+    "id": "cloudinary",
+    "name": "Cloudinary",
+    "website_url": "https://cloudinary.com/"
+  },
+  {
+    "id": "taboola",
+    "name": "Taboola",
+    "website_url": "https://www.taboola.com/"
+  },
+  {
     "id": "vonage",
     "name": "Vonage",
     "website_url": "https://www.vonage.com/"
