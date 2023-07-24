@@ -4,14 +4,15 @@
   "tagline": "Data-Systems Architect, Javascript Developer",
   "experience": [
     {
-      "position": "Senior Front-End Developer",
-      "company_id": "taboola",
+      "position": "Senior Full Stack Web Developer",
+      "company_id": "cloudinary",
       "employment_period": [
         "2022/01"
       ],
       "employment_type": "full-time",
-      "job_description": "Designed a front-end visual testing framework using Playwright and custom fixtures.",
+      "job_description": "CTO Office: Responsible of business development and technology research. Developing full MVPs from design to deployment and insights collection.",
       "tag": [
+        "typescript",
         "javascript",
         "reactjs",
         "browser",
