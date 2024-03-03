@@ -144,6 +144,20 @@
     "website_url": "https://jasmine.github.io/"
   },
   {
+    "id": "mobx",
+    "name": "MobX",
+    "category": "library",
+    "description": "State management library",
+    "website_url": "https://mobx.js.org/"
+  },
+  {
+    "id": "jest",
+    "name": "Jest",
+    "category": "library",
+    "description": "Assertion library and test harness",
+    "website_url": "https://jestjs.io/"
+  },
+  {
     "id": "baconjs",
     "name": "Bacon.js",
     "category": "library",

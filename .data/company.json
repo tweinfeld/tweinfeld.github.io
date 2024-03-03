@@ -1,5 +1,10 @@
 [
   {
+    "id": "duda",
+    "name": "Duda",
+    "website_url": "https://www.duda.co/"
+  },
+  {
     "id": "cloudinary",
     "name": "Cloudinary",
     "website_url": "https://cloudinary.com/"
