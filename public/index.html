@@ -44,7 +44,7 @@
                         });
                         return (ordA - ordB) || (a["name"] > b["name"] ? 1 : [a["name"] < b["name"] ? -1 : 0]);
                     }
-                })(["language", "runtime", "framework", "library"]);
+                })(["application_framework", "library", "lxm", "language", "runtime", "data_service", "deployment", "cloud_provider"]);
                 identity = (x)=> x,
                 pipe = (...funcs)=> funcs.reduce((wrapperFunction, func)=> (arg)=> func(wrapperFunction(arg)), identity),
                 uiBus = (function(listeners){
@@ -101,6 +101,7 @@
                     h2({}, "Data-Systems Architect, Javascript Developer"),
                     aside({}, Object.assign(button({ className: "print" }, 'Print'), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_PRINT_CLICK, null) })),
                 ),
+                sub({}, p({}, em({}, 'Fun Fact: '), 'This page\'s code (JS and CSS) was written manually, ', em({}, 'without'),' the use of ', em({}, 'any'), ' frameworks nor AI.', Object.assign(a({ href: "https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html" }, 'Go ahead! Check it out for yourself!'), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_URL_CLICK, 'https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html') }))),
                 section(
                     { className: "experience" },
                     h1({}, 'Experience'),
@@ -171,8 +172,7 @@
                             createPhone: ({ number })=> li({ className: "phone" }, Object.assign(a({ href: `tel:${number}` }, number), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_URL_CLICK, `tel:${number}`) }))
                         })
                     )))
-                ),
-                sub({}, p({}, em({}, 'Fun Fact: '), 'This page\'s code (JS and CSS) was written without the use of ', em({}, 'any'), ' frameworks (\"Vanilla\"). ', Object.assign(a({ href: "https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html" }, 'Go ahead! Check it out for yourself.'), { [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(null, EVENT_URL_CLICK, 'https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html') })))
+                )
             );
 
             // Reactivity

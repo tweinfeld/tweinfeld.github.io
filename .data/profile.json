@@ -4,14 +4,47 @@
   "tagline": "Data-Systems Architect, Javascript Developer",
   "experience": [
     {
+      "position": "Tech Lead",
+      "company_id": "sightfull",
+      "employment_period": [
+        "2024/09",
+        "2025/04"
+      ],
+      "employment_type": "full-time",
+      "job_description": "Leading R&D technology-wise. Managing and coordinating system and software design efforts across development teams dealing with backend, frontend and LxMs (OpenAI, Claude)",
+      "tag": [
+        "bigquery",
+        "postgres",
+        "snowflake",
+        "openai",
+        "claude",
+        "typescript",
+        "javascript",
+        "reactjs",
+        "browser",
+        "lodash",
+        "ramda",
+        "expressjs",
+        "nodejs",
+        "kefirjs",
+        "playwright",
+        "jest",
+        "mobx",
+        "aws",
+        "kubernetes"
+      ]
+    },
+    {
       "position": "Front-End Architect",
       "company_id": "duda",
       "employment_period": [
-        "2023/06"
+        "2023/06",
+        "2024/08"
       ],
       "employment_type": "full-time",
       "job_description": "Leading the company's Front-end guild, empowering developers with knowledge and improving coding experience.",
       "tag": [
+        "openai",
         "typescript",
         "javascript",
         "reactjs",

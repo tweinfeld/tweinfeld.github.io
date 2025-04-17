@@ -1,5 +1,10 @@
 [
   {
+    "id": "sightfull",
+    "name": "Sightfull",
+    "website_url": "https://www.sightfull.com/"
+  },
+  {
     "id": "duda",
     "name": "Duda",
     "website_url": "https://www.duda.co/"

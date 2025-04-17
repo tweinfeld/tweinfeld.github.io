@@ -1,5 +1,19 @@
 [
   {
+    "id": "openai",
+    "name": "OpenAI",
+    "category": "lxm",
+    "description": "LxM provider, known for \"ChatGPT\" models, good for generic assistant tasks",
+    "website_url": "https://openai.com/"
+  },
+  {
+    "id": "claude",
+    "name": "Claude",
+    "category": "lxm",
+    "description": "LxM provider, known for their \"Sonnet\" models, specializing in code generation",
+    "website_url": "https://claude.ai/"
+  },
+  {
     "id": "playwright",
     "name": "Playwright",
     "category": "application_framework",
@@ -23,7 +37,7 @@
     "id": "typescript",
     "name": "Typescript",
     "category": "language",
-    "description": "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.",
+    "description": "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript",
     "website_url": "https://www.typescriptlang.org/"
   },
   {
@@ -52,6 +66,13 @@
     "category": "application_framework",
     "description": "Node.js web application framework",
     "website_url": "https://expressjs.com/"
+  },
+  {
+    "id": "bigquery",
+    "name": "BigQuery",
+    "category": "data_service",
+    "description": "Google Cloud's data warehouse",
+    "website_url": "https://cloud.google.com/bigquery/"
   },
   {
     "id": "nodejs",
@@ -130,11 +151,25 @@
     "description": "Web Browser (front-end application)"
   },
   {
+    "id": "snowflake",
+    "name": "Snowflake",
+    "category": "data_service",
+    "description": "Large-scale database",
+    "website_url": "https://www.snowflake.com/"
+  },
+  {
     "id": "elastic",
     "name": "Elastic",
     "category": "data_service",
     "description": "Open source search database",
     "website_url": "https://www.elastic.co/"
+  },
+  {
+    "id": "postgres",
+    "name": "PostgresSQL",
+    "category": "data_service",
+    "description": "Open source relational database",
+    "website_url": "https://www.postgresql.org/"
   },
   {
     "id": "jasmine",

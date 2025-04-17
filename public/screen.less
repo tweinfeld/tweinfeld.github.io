@@ -6,14 +6,23 @@
 @theme-font-1: 'Karla', sans-serif;
 @theme-font-2: "Font Awesome 5 Free";
 @theme-font-3: "Font Awesome 5 Brands";
-@theme-border-radius: 2px;
+@theme-border-radius: 0.5rem;
+
+@color-application-framework: #003f5c;
+@color-library: #2f4b7c;
+@color-lxm: #665191;
+@color-language: #a05195;
+@color-runtime: #d45087;
+@color-data-service: #f95d6a;
+@color-deployment: #ff7c43;
+@color-cloud-provider: #ffa600;
 
 html {
   height: 100%;
 }
 
 a {
-  color: lighten(@theme-color-1, 40%);
+  color: lighten(@theme-color-1, 10%);
 }
 
 a, a:visited, a:link, a:active {
@@ -24,61 +33,29 @@ a:hover {
   text-decoration: underline;
 }
 
-div.tip {
-  background-color: rgba(0,0,0,0.8);
-  color: @theme-color-2;
-  max-width: 10rem;
-  position: fixed;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  font-size: 0.8rem;
-  line-height: 1rem;
-  transform: translate(-50%, -100%);
-  opacity: 0;
-  padding: 0.5rem;
-  margin-top: -0.8rem;
-  text-align: center;
-  transition: opacity 0.2s;
-  &.active {
-    opacity: 1;
-  }
-
-  &:after {
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    content: "";
-    border-top: 5px solid rgba(0,0,0,0.8);
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-  }
-
-}
-
 body {
-  margin: 0.5rem;
-  padding: 0;
+  margin: 0;
+  padding: 0.5rem;
   background-color: @theme-color-2;
   color: @theme-color-1;
   font-family: @theme-font-1;
 
   > main {
 
-    > header {
+    margin: 0 auto;
+    max-inline-size: 1280px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 
+    > header {
       border-radius: @theme-border-radius;
       position: relative;
       padding: 1.5rem 0 1.5rem 6rem;
       background-color: @theme-color-1;
       color: @theme-color-2;
-      margin: 0.5rem 0;
+      margin: 0;
       overflow: hidden;
-      //border: solid 1px @theme-color-3;
 
       > img {
         position: absolute;
@@ -118,11 +95,10 @@ body {
         > button {
           background-color: darken(@theme-color-3, 5%);
           border: solid 1px @theme-color-2;
-          border-radius: 2px;
+          border-radius: (@theme-border-radius * 0.5);
           color: @theme-color-2;
-          margin-left: 5px;
           cursor: pointer;
-          padding: 5px 5px;
+          padding: 5px 1rem;
           box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
 
           &:focus {
@@ -146,11 +122,12 @@ body {
     }
 
     > section {
-      margin: 0.5rem 0;
+      margin: 0;
       border: solid 1px @theme-color-1;
       background-color: lighten(@theme-color-2, 55%);
       padding: 0;
       border-radius: @theme-border-radius;
+      overflow: hidden;
 
       > h1 {
         margin: 0 0 1rem 0;
@@ -213,7 +190,7 @@ body {
               top: 50%;
               transform: translateY(-50%);
             }
-            //["#16a086", "#27ae61", "#2a80b9", "#8f44ad", "#2d3e50", "#f39c11", "#d25400", "#c1392b", "#bec3c7", "#7e8c8d"];
+
             &.social-linkedin:before {
               content: "\f08c";
               color: #2a80b9;
@@ -340,20 +317,23 @@ body {
             }
 
             > div.logo {
+              box-sizing: content-box;
+              background-color: @theme-color-2;
+              border-radius: @theme-border-radius * 0.3;
+              border: dashed 1px lighten(@theme-color-1, 50%);
               position: absolute;
               width: 5.2rem;
               height: 2rem;
-              background-color: #fff;
               background-repeat: no-repeat;
               background-position: center center;
-              background-size: 95%;
-              left: 0.8rem;
+              background-size: 100%;
+              background-origin: content-box;
+              padding: 0.4rem;
+              transform: translateY(-50%);
+              left: 0;
               top: 50%;
-              margin-top: -1rem;
-              border-radius: @theme-border-radius;
-              border: solid 1px @theme-color-5;
 
-              &:after {
+              /*&:after {
                 position: absolute;
                 right: -8px;
                 top: 50%;
@@ -365,7 +345,7 @@ body {
                 border-top: 5px solid transparent;
                 border-bottom: 5px solid transparent;
                 border-left: 7px solid @theme-color-5;
-              }
+              }*/
             }
 
             > div.period {
@@ -391,6 +371,8 @@ body {
                 display: block;
                 position: absolute;
                 right: 12px;
+                white-space: nowrap;
+
                 &:before {
                   content: "";
                   background-color: #fff;
@@ -422,12 +404,14 @@ body {
       margin: 0 0;
       padding: 0.5rem 0;
       display: block;
+      white-space: pre-line;
 
       > p {
         margin: 0;
         padding: 0;
         text-align: center;
         font-size: 0.8rem;
+        line-height: 1.2rem;
 
         &:before {
           font-family: @theme-font-2;
@@ -449,6 +433,7 @@ ul.tag {
   list-style: none;
   padding: 0;
   margin: 0;
+  max-inline-size: 35rem;
 
   > li {
     display: inline-block;
@@ -479,31 +464,35 @@ ul.tag {
     }
 
     &.application_framework {
-      .colorize_link(#7e8c8d);
+      .colorize_link(@color-application-framework);
     }
 
     &.library {
-      .colorize_link(#27ae61);
+      .colorize_link(@color-library);
     }
 
     &.language {
-      .colorize_link(#2a80b9);
+      .colorize_link(@color-language);
     }
 
     &.runtime {
-      .colorize_link(#8f44ad);
+      .colorize_link(@color-runtime);
     }
 
     &.data_service {
-      .colorize_link(#bec3c7);
+      .colorize_link(@color-data-service);
     }
 
     &.deployment {
-      .colorize_link(#f39c11);
+      .colorize_link(@color-deployment);
     }
 
     &.cloud_provider {
-      .colorize_link(#d25400);
+      .colorize_link(@color-cloud-provider);
+    }
+
+    &.lxm {
+      .colorize_link(@color-lxm);
     }
   }
 }
