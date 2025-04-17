@@ -2,7 +2,7 @@ html {
   height: 100%;
 }
 a {
-  color: #aaaaaa;
+  color: #5e5e5e;
 }
 a,
 a:visited,
@@ -13,53 +13,27 @@ a:active {
 a:hover {
   text-decoration: underline;
 }
-div.tip {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #f7f7f7;
-  max-width: 10rem;
-  position: fixed;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  font-size: 0.8rem;
-  line-height: 1rem;
-  transform: translate(-50%, -100%);
-  opacity: 0;
-  padding: 0.5rem;
-  margin-top: -0.8rem;
-  text-align: center;
-  transition: opacity 0.2s;
-}
-div.tip.active {
-  opacity: 1;
-}
-div.tip:after {
-  width: 0;
-  height: 0;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  content: "";
-  border-top: 5px solid rgba(0, 0, 0, 0.8);
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-}
 body {
-  margin: 0.5rem;
-  padding: 0;
+  margin: 0;
+  padding: 0.5rem;
   background-color: #f7f7f7;
   color: #444;
   font-family: 'Karla', sans-serif;
 }
+body > main {
+  margin: 0 auto;
+  max-inline-size: 1280px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 body > main > header {
-  border-radius: 2px;
+  border-radius: 0.5rem;
   position: relative;
   padding: 1.5rem 0 1.5rem 6rem;
   background-color: #444;
   color: #f7f7f7;
-  margin: 0.5rem 0;
+  margin: 0;
   overflow: hidden;
 }
 body > main > header > img {
@@ -98,11 +72,10 @@ body > main > header > aside {
 body > main > header > aside > button {
   background-color: #df8e0b;
   border: solid 1px #f7f7f7;
-  border-radius: 2px;
+  border-radius: 0.25rem;
   color: #f7f7f7;
-  margin-left: 5px;
   cursor: pointer;
-  padding: 5px 5px;
+  padding: 5px 1rem;
   box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
 }
 body > main > header > aside > button:focus {
@@ -120,11 +93,12 @@ body > main > header > aside > button.json:before {
   content: "\f15b";
 }
 body > main > section {
-  margin: 0.5rem 0;
+  margin: 0;
   border: solid 1px #444;
   background-color: #ffffff;
   padding: 0;
-  border-radius: 2px;
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 body > main > section > h1 {
   margin: 0 0 1rem 0;
@@ -281,31 +255,34 @@ body > main > section.experience > ol > li > p:after {
   content: "”";
 }
 body > main > section.experience > ol > li > div.logo {
+  box-sizing: content-box;
+  background-color: #f7f7f7;
+  border-radius: 0.15rem;
+  border: dashed 1px #c3c3c3;
   position: absolute;
   width: 5.2rem;
   height: 2rem;
-  background-color: #fff;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 95%;
-  left: 0.8rem;
-  top: 50%;
-  margin-top: -1rem;
-  border-radius: 2px;
-  border: solid 1px #1bbc9b;
-}
-body > main > section.experience > ol > li > div.logo:after {
-  position: absolute;
-  right: -8px;
-  top: 50%;
+  background-size: 100%;
+  background-origin: content-box;
+  padding: 0.4rem;
   transform: translateY(-50%);
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-left: 7px solid #1bbc9b;
+  left: 0;
+  top: 50%;
+  /*&:after {
+                position: absolute;
+                right: -8px;
+                top: 50%;
+                transform: translateY(-50%);
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+                border-left: 7px solid @theme-color-5;
+              }*/
 }
 body > main > section.experience > ol > li > div.period {
   position: absolute;
@@ -329,6 +306,7 @@ body > main > section.experience > ol > li > div.period > time {
   display: block;
   position: absolute;
   right: 12px;
+  white-space: nowrap;
 }
 body > main > section.experience > ol > li > div.period > time:before {
   content: "";
@@ -352,12 +330,14 @@ body > main > sub {
   margin: 0 0;
   padding: 0.5rem 0;
   display: block;
+  white-space: pre-line;
 }
 body > main > sub > p {
   margin: 0;
   padding: 0;
   text-align: center;
   font-size: 0.8rem;
+  line-height: 1.2rem;
 }
 body > main > sub > p:before {
   font-family: "Font Awesome 5 Free";
@@ -373,6 +353,7 @@ ul.tag {
   list-style: none;
   padding: 0;
   margin: 0;
+  max-inline-size: 35rem;
 }
 ul.tag > li {
   display: inline-block;
@@ -393,51 +374,58 @@ ul.tag > li.link:after {
 }
 ul.tag > li.application_framework {
   color: #f7f7f7;
-  background-color: #7e8c8d;
+  background-color: #003f5c;
 }
 ul.tag > li.application_framework.link:hover {
-  background-color: #99a4a5;
+  background-color: #00628f;
 }
 ul.tag > li.library {
   color: #f7f7f7;
-  background-color: #27ae61;
+  background-color: #2f4b7c;
 }
 ul.tag > li.library.link:hover {
-  background-color: #36d279;
+  background-color: #3d61a1;
 }
 ul.tag > li.language {
   color: #f7f7f7;
-  background-color: #2a80b9;
+  background-color: #a05195;
 }
 ul.tag > li.language.link:hover {
-  background-color: #429ad4;
+  background-color: #b66eac;
 }
 ul.tag > li.runtime {
   color: #f7f7f7;
-  background-color: #8f44ad;
+  background-color: #d45087;
 }
 ul.tag > li.runtime.link:hover {
-  background-color: #a663c1;
+  background-color: #de79a3;
 }
 ul.tag > li.data_service {
   color: #f7f7f7;
-  background-color: #bec3c7;
+  background-color: #f95d6a;
 }
 ul.tag > li.data_service.link:hover {
-  background-color: #d9dcdf;
+  background-color: #fb8e97;
 }
 ul.tag > li.deployment {
   color: #f7f7f7;
-  background-color: #f39c11;
+  background-color: #ff7c43;
 }
 ul.tag > li.deployment.link:hover {
-  background-color: #f5b042;
+  background-color: #ffa076;
 }
 ul.tag > li.cloud_provider {
   color: #f7f7f7;
-  background-color: #d25400;
+  background-color: #ffa600;
 }
 ul.tag > li.cloud_provider.link:hover {
-  background-color: #ff6a06;
+  background-color: #ffb833;
+}
+ul.tag > li.lxm {
+  color: #f7f7f7;
+  background-color: #665191;
+}
+ul.tag > li.lxm.link:hover {
+  background-color: #7f6aab;
 }
 /*# sourceMappingURL=screen.css.map */
