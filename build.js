@@ -1,12 +1,9 @@
 const { readFileSync, writeFileSync, mkdirSync } = require("node:fs");
-const { resolve, join } = require("node:path");
-const identity = require("lodash/fp/identity.js");
-const pipe = require("lodash/fp/pipe.js");
+const { resolve } = require("node:path");
 const get = require("lodash/fp/get.js");
 const less = require("less");
 const svgo = require("svgo");
 const prettier = require("prettier");
-const configuration = require("./src/configuration");
 const kefir = require("kefir");
 const fs = require("node:fs");
 const path = require("path");
