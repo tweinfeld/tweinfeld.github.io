@@ -2,16 +2,23 @@
   "name": "resume",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node src/server/index.js",
+    "build": "node build.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["resume", "cv", "tal", "weinfeld"],
+  "author": "Tal Weinfeld",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
     "kefir": "^3.8.6"
+  },
+  "devDependencies": {
+    "less": "^4.3.0",
+    "lodash": "^4.17.21",
+    "prettier": "^3.5.3",
+    "svgo": "^3.3.2"
   }
 }

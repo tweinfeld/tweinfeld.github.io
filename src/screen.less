@@ -3,10 +3,10 @@
 @theme-color-3: #f39c11;
 @theme-color-4: #2dcc70;
 @theme-color-5: #1bbc9b;
-@theme-font-1: 'Karla', sans-serif;
+@theme-font-1: "Karla", sans-serif;
 @theme-font-2: "Font Awesome 5 Free";
 @theme-font-3: "Font Awesome 5 Brands";
-@theme-border-radius: 0.5rem;
+@theme-border-radius: 0.8rem;
 
 @color-application-framework: #003f5c;
 @color-library: #2f4b7c;
@@ -25,7 +25,10 @@ a {
   color: lighten(@theme-color-1, 10%);
 }
 
-a, a:visited, a:link, a:active {
+a,
+a:visited,
+a:link,
+a:active {
   text-decoration: none;
 }
 
@@ -35,14 +38,14 @@ a:hover {
 
 body {
   margin: 0;
-  padding: 0.5rem;
+  padding: 0;
   background-color: @theme-color-2;
   color: @theme-color-1;
   font-family: @theme-font-1;
 
   > main {
-
-    margin: 0 auto;
+    margin: auto;
+    padding: 1rem 0;
     max-inline-size: 1280px;
     display: flex;
     flex-direction: column;
@@ -61,20 +64,21 @@ body {
         position: absolute;
         top: 50%;
         left: 1rem;
-        border-radius: 80px;
+        border-radius: @theme-border-radius;
         width: 4rem;
         height: 4rem;
         border: solid 2px @theme-color-2;
         z-index: 100;
         transform: translateY(-50%);
-        box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+        box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
       }
 
-      > h1, > h2 {
+      > h1,
+      > h2 {
         font-weight: bold;
         font-size: 1rem;
         margin: 0;
-        text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
       }
 
       > h1 {
@@ -99,7 +103,7 @@ body {
           color: @theme-color-2;
           cursor: pointer;
           padding: 5px 1rem;
-          box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+          box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
 
           &:focus {
             outline: none;
@@ -110,21 +114,22 @@ body {
             margin-right: 4px;
             font-weight: bold;
           }
+
           &.print:before {
             content: "\f02f";
           }
+
           &.json:before {
             content: "\f15b";
           }
         }
-
       }
     }
 
     > section {
       margin: 0;
       border: solid 1px @theme-color-1;
-      background-color: lighten(@theme-color-2, 55%);
+      background-color: darken(@theme-color-2, 1%);
       padding: 0;
       border-radius: @theme-border-radius;
       overflow: hidden;
@@ -135,7 +140,7 @@ body {
         padding: 0.4rem 0.5rem;
         background-color: @theme-color-1;
         color: @theme-color-2;
-        text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
 
         &:before {
           font-size: 90%;
@@ -155,7 +160,6 @@ body {
       }
 
       &.contact {
-
         > p {
           margin: 0;
           padding: 0 1rem;
@@ -223,7 +227,6 @@ body {
       }
 
       &.experience {
-
         > h1 {
           &:before {
             content: "\f017";
@@ -236,46 +239,12 @@ body {
           position: relative;
           padding: 0.2rem 0;
 
-          &:after {
-            color: @theme-color-4;
-            display: block;
-            width: 1.5rem;
-            height: 1.5rem;
-            line-height: 1.5rem;
-            font-size: 1rem;
-            content: "\f128";
-            font-family: @theme-font-2;
-            border: dashed 2px @theme-color-4;
-            background-color: #fff;
-            position: absolute;
-            top: 0;
-            left: 7rem;
-            transform: translateX(-50%);
-            margin-left: 1px;
-            border-radius: 2rem;
-            text-align: center;
-            font-style: @theme-font-1;
-            font-weight: bold;
-          }
-
-          &:before {
-            content: "";
-            top: 0;
-            left: 7rem;
-            display: block;
-            position: absolute;
-            height: 100%;
-            width: 2px;
-            border-left: 2px dotted @theme-color-4;
-          }
-
           > li {
-
-            padding: 1.2rem 1rem 1.2rem 8.5rem;
+            padding: 0 1rem 0 15.5rem;
             position: relative;
             min-height: 6rem;
             box-sizing: border-box;
-            margin: 1.5rem 0;
+            margin: 4rem 0;
 
             > h1 {
               margin: 0;
@@ -284,7 +253,6 @@ body {
             }
 
             &.freelance {
-
               > h1:after {
                 content: "\f0f2";
                 font-weight: bold;
@@ -308,48 +276,33 @@ body {
               margin: 0.8rem 0;
               font-style: italic;
               line-height: 1.5rem;
+
               &:before {
-                content: "“"
+                content: "“";
               }
+
               &:after {
-                content: "”"
+                content: "”";
               }
             }
 
             > div.logo {
               box-sizing: content-box;
-              background-color: @theme-color-2;
-              border-radius: @theme-border-radius * 0.3;
-              border: dashed 1px lighten(@theme-color-1, 50%);
               position: absolute;
               width: 5.2rem;
               height: 2rem;
-              background-repeat: no-repeat;
-              background-position: center center;
-              background-size: 100%;
-              background-origin: content-box;
+              background-color: darken(@theme-color-4, 10%);
+              mask-repeat: no-repeat;
+              mask-position: center;
+              mask-size: 100%;
+              mask-origin: content-box;
               padding: 0.4rem;
               transform: translateY(-50%);
-              left: 0;
+              left: 8rem;
               top: 50%;
-
-              /*&:after {
-                position: absolute;
-                right: -8px;
-                top: 50%;
-                transform: translateY(-50%);
-                content: "";
-                display: block;
-                width: 0;
-                height: 0;
-                border-top: 5px solid transparent;
-                border-bottom: 5px solid transparent;
-                border-left: 7px solid @theme-color-5;
-              }*/
             }
 
             > div.period {
-
               position: absolute;
               top: -3px;
               left: 10px;
@@ -357,7 +310,8 @@ body {
               font-size: 0.7rem;
               font-weight: bold;
               text-transform: uppercase;
-              background-image: linear-gradient(@theme-color-4, #1bbc9b, @theme-color-4);
+              background-image: linear-gradient(@theme-color-4 20%, darken(@theme-color-4, 10%) 50%, @theme-color-4 80%);
+
               background-size: 2px 100%;
               background-repeat: no-repeat;
               background-origin: padding-box;
@@ -380,7 +334,7 @@ body {
                   width: 6px;
                   height: 6px;
                   border: solid 2px @theme-color-4;
-                  border-radius: 10px;
+                  border-radius: @theme-border-radius;
                   position: absolute;
                   right: -16px;
                   top: 1px;
@@ -396,6 +350,39 @@ body {
               }
             }
           }
+
+          &:after {
+            color: @theme-color-4;
+            display: block;
+            width: 1.5rem;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            font-size: 1rem;
+            content: "\f128";
+            font-family: @theme-font-2;
+            border: dashed 2px @theme-color-4;
+            background-color: #fff;
+            position: absolute;
+            top: 0;
+            left: 7rem;
+            transform: translateX(-50%);
+            margin-left: 1px;
+            border-radius: @theme-border-radius * 2;
+            text-align: center;
+            font-style: @theme-font-1;
+            font-weight: bold;
+          }
+
+          &:before {
+            content: "";
+            top: 0;
+            left: 7rem;
+            display: block;
+            position: absolute;
+            height: 100%;
+            width: 2px;
+            border-left: 2px dotted @theme-color-4;
+          }
         }
       }
     }
@@ -410,14 +397,14 @@ body {
         margin: 0;
         padding: 0;
         text-align: center;
-        font-size: 0.8rem;
-        line-height: 1.2rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
 
         &:before {
           font-family: @theme-font-2;
           font-weight: bold;
           content: "\f0fc";
-          margin-right: 0.2rem;
+          margin-right: 0.4rem;
         }
 
         > em {
@@ -440,7 +427,7 @@ ul.tag {
     padding: 0.2rem 0.3rem;
     margin: 0.1rem 0.1rem;
     background-color: #bfbfbf;
-    border-radius: 2px;
+    border-radius: @theme-border-radius * 0.3;
     font-size: 0.8rem;
     cursor: pointer;
 
@@ -455,7 +442,7 @@ ul.tag {
       }
     }
 
-    .colorize_link(@color){
+    .colorize_link(@color) {
       color: @theme-color-2;
       background-color: @color;
       &.link:hover {

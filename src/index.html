@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Loading..</title>
+    <link
+            rel="icon"
+            href="https://webwise.co.il/favicon.ico"
+            type="image/x-icon"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E88LQJ7QC5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-E88LQJ7QC5');
+    </script>
+    <link rel="stylesheet" media="print" href="print.css"/>
+    <link rel="stylesheet" media="screen" href="screen.css"/>
+    <link
+            href="https://fonts.googleapis.com/css?family=Karla:400,400i,700"
+            rel="stylesheet"
+    />
+    <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.1/css/solid.css"
+    />
+    <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.1/css/fontawesome.css"
+    />
+    <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.1/css/brands.css"
+    />
+</head>
+<body>
+<script>
+    (async function () {
+        const MONTH_NAMES = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+            ],
+            [SYMBOL_CLICK_HANDLER, SYMBOL_OVER_HANDLER, SYMBOL_OUT_HANDLER] = [
+                "ClickHandler",
+                "MouseOver",
+                "MouseOut",
+            ].map((id) => Symbol(id)),
+            [EVENT_URL_CLICK, EVENT_PRINT_CLICK] = ["visit_url", "print"];
+
+        const hash = function (str) {
+                let hash = 0;
+                str
+                    .split("")
+                    .map((x) => x.charCodeAt(0))
+                    .forEach((char) => {
+                        hash = (hash << 5) - hash + char;
+                        hash = hash & hash;
+                    });
+                return hash;
+            },
+            tagCategorySort = (function (categoryOrdinal) {
+                return (a, b) => {
+                    let [ordA, ordB] = [a, b].map((x) => {
+                        let category = x["category"],
+                            pos = categoryOrdinal.indexOf(category);
+                        return ~pos ? pos : 100 + Math.abs(hash(category));
+                    });
+                    return (
+                        ordA - ordB ||
+                        (a["name"] > b["name"] ? 1 : [a["name"] < b["name"] ? -1 : 0])
+                    );
+                };
+            })([
+                "application_framework",
+                "library",
+                "lxm",
+                "language",
+                "runtime",
+                "data_service",
+                "deployment",
+                "cloud_provider",
+            ]);
+        (identity = (x) => x),
+            (pipe = (...funcs) =>
+                funcs.reduce(
+                    (wrapperFunction, func) => (arg) => func(wrapperFunction(arg)),
+                    identity,
+                )),
+            (uiBus = (function (listeners) {
+                return {
+                    on: (event, handler) =>
+                        (listeners[event] = listeners[event] || []).push(handler),
+                    off: (event, handler) =>
+                        (listeners[event] = (listeners[event] || []).filter(
+                            (existingHandler) => existingHandler !== handler,
+                        )),
+                    trigger: (event, payload) =>
+                        (listeners[event] || []).forEach((listener) =>
+                            listener(payload),
+                        ),
+                };
+            })({})),
+            (sendUiEvent = uiBus.trigger),
+            (sendAnalyticsEvent = (eventName, str) =>
+                (window["gtag"] || identity)(
+                    "event",
+                    eventName,
+                    Object.assign(
+                        {event_category: "general"},
+                        str && {event_label: str},
+                    ),
+                ));
+
+        const rootEl = document.querySelector("body"),
+            resumeData = fetch("data.json").then((res) => res.json()),
+            experienceData = await resumeData
+                .then(({profile: {experience}}) => experience)
+                .then((experienceData) =>
+                    experienceData.map(
+                        ({employment_period: employmentPeriod, ...rest}) => ({
+                            employment_period: [null, null].map((__, index) => {
+                                let d = employmentPeriod[index];
+                                return d && new Date(d + "/01");
+                            }),
+                            ...rest,
+                        }),
+                    ),
+                ),
+            tagData = await resumeData.then(({tag = []}) => tag),
+            profileData = await resumeData.then(({profile}) => profile),
+            referenceData = await resumeData.then(
+                ({profile: {reference = []}}) => reference,
+            ),
+            companyData = await resumeData.then(({company = []}) => company);
+
+        document.title = (({full_name, tagline}) =>
+            [full_name, tagline].join(" - "))(profileData);
+
+        const applyAttributes = (function (keynameTranslations) {
+                return (el, attributes = {}) => {
+                    Object.keys(attributes).forEach((attributeName) => {
+                        let value = attributes[attributeName];
+                        value &&
+                        el.setAttribute(
+                            keynameTranslations[attributeName] || attributeName,
+                            value,
+                        );
+                    });
+                    return el;
+                };
+            })({className: "class"}),
+            htmlTagFactory =
+                (tagName) =>
+                    (attributes = {}, ...children) => {
+                        let el = applyAttributes(
+                            document.createElement(tagName),
+                            attributes,
+                        );
+                        Array.prototype.concat
+                            .apply([], children)
+                            .forEach((child) =>
+                                el.appendChild(
+                                    typeof child === "string"
+                                        ? document.createTextNode(child)
+                                        : child,
+                                ),
+                            );
+                        return el;
+                    },
+            [
+                main,
+                button,
+                sub,
+                a,
+                aside,
+                em,
+                header,
+                section,
+                h1,
+                h2,
+                time,
+                p,
+                img,
+                ol,
+                li,
+                div,
+                ul,
+            ] = [
+                "main",
+                "button",
+                "sub",
+                "a",
+                "aside",
+                "em",
+                "header",
+                "section",
+                "h1",
+                "h2",
+                "time",
+                "p",
+                "img",
+                "ol",
+                "li",
+                "div",
+                "ul",
+            ].map(htmlTagFactory);
+
+        let mainEl = main(
+            {},
+            header(
+                {},
+                img({src: profileData["photo"]}),
+                h1({}, profileData["full_name"]),
+                h2({}, "Data-Systems Architect, Javascript Developer"),
+                aside(
+                    {},
+                    Object.assign(button({className: "print"}, "Print"), {
+                        [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(
+                            null,
+                            EVENT_PRINT_CLICK,
+                            null,
+                        ),
+                    }),
+                ),
+            ),
+            sub(
+                {},
+                p(
+                    {},
+                    em({}, "Fun Fact: "),
+                    "This page's code (JS and CSS) was written manually, ",
+                    em({}, "without"),
+                    " the use of ",
+                    em({}, "any"),
+                    " frameworks nor AI. ",
+                    Object.assign(
+                        a(
+                            {
+                                href: "https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html",
+                            },
+                            "Go ahead! Check it out for yourself!",
+                        ),
+                        {
+                            [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(
+                                null,
+                                EVENT_URL_CLICK,
+                                "https://github.com/tweinfeld/tweinfeld.github.io/blob/master/index.html",
+                            ),
+                        },
+                    ),
+                ),
+            ),
+            section(
+                {className: "experience"},
+                h1({}, "Experience"),
+                ol(
+                    {},
+                    experienceData.map(
+                        ({
+                             tag = [],
+                             position,
+                             company_id: companyId,
+                             employment_type: employmentType,
+                             employment_period: employmentPeriod,
+                             job_description: jobDescription,
+                         }) => {
+                            let company = companyData.find(({id}) => id === companyId);
+
+                            return li(
+                                {
+                                    className: [
+                                        {
+                                            "full-time": "fulltime",
+                                            freelance: "freelance",
+                                        }[employmentType],
+                                    ]
+                                        .filter(Boolean)
+                                        .join(" "),
+                                },
+                                ...[
+                                    companyId &&
+                                    div({
+                                        className: "logo",
+                                        title: company["name"] || "",
+                                        style: `mask-image: url(logos.svg#${companyId});`,
+                                    }),
+                                    h1(
+                                        {
+                                            title: [
+                                                position,
+                                                employmentType === "freelance" && "(as freelancer)",
+                                            ]
+                                                .filter(Boolean)
+                                                .join(" "),
+                                        },
+                                        position,
+                                    ),
+                                    Object.assign(h2({}, company["name"]), {
+                                        [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(
+                                            null,
+                                            EVENT_URL_CLICK,
+                                            company["website_url"],
+                                        ),
+                                    }),
+                                    div(
+                                        {className: "period"},
+                                        ...employmentPeriod.map((date) =>
+                                            date
+                                                ? time(
+                                                    {datetime: date},
+                                                    `${[
+                                                        MONTH_NAMES[date.getMonth()],
+                                                        date.getFullYear(),
+                                                    ]
+                                                        .map((n) => n.toString().padStart(2, "0"))
+                                                        .join(" ")}`,
+                                                )
+                                                : time({}, "Now"),
+                                        ),
+                                    ),
+                                    p({}, jobDescription),
+                                    ul(
+                                        {className: "tag"},
+                                        ...tag
+                                            .map((tagId) =>
+                                                tagData.find(({id}) => tagId === id),
+                                            )
+                                            .sort(tagCategorySort)
+                                            .map((currentTag) => {
+                                                let item = li(
+                                                    {
+                                                        className: [
+                                                            currentTag["category"],
+                                                            currentTag["website_url"] && "link",
+                                                        ]
+                                                            .filter(Boolean)
+                                                            .join(" "),
+                                                        title: ["name", "description"]
+                                                            .map((fieldName) => currentTag[fieldName])
+                                                            .join(": "),
+                                                    },
+                                                    currentTag["name"],
+                                                );
+                                                currentTag["website_url"] &&
+                                                (item[SYMBOL_CLICK_HANDLER] = sendUiEvent.bind(
+                                                    null,
+                                                    EVENT_URL_CLICK,
+                                                    currentTag["website_url"],
+                                                ));
+                                                return item;
+                                            }),
+                                    ),
+                                ].filter(Boolean),
+                            );
+                        },
+                    ),
+                ),
+            ),
+            section(
+                {className: "contact"},
+                h1({}, "More"),
+                p({}, "Find out more information and contact me on these links:"),
+                ol(
+                    {},
+                    ...referenceData.map(
+                        (function (renderer) {
+                            return ({id, ...rest}) => renderer[id]({id, ...rest});
+                        })(
+                            (function ({
+                                           createWebsite,
+                                           createSocial,
+                                           createEmail,
+                                           createPhone,
+                                       }) {
+                                return {
+                                    linkedin: createSocial,
+                                    github: createSocial,
+                                    email: createEmail,
+                                    phone: createPhone,
+                                    website: createWebsite,
+                                };
+                            })({
+                                createWebsite: ({website_url = ""}) =>
+                                    li(
+                                        {className: "website"},
+                                        Object.assign(
+                                            a(
+                                                {href: website_url},
+                                                (website_url.match(/^https?:\/\/([^/$]+)/) || [
+                                                    "",
+                                                    "",
+                                                ])[1],
+                                            ),
+                                            {
+                                                [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(
+                                                    null,
+                                                    EVENT_URL_CLICK,
+                                                    website_url,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                createSocial: ({id, title, website_url}) =>
+                                    li(
+                                        {className: `social-${id}`},
+                                        Object.assign(a({href: website_url}, title), {
+                                            [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(
+                                                null,
+                                                EVENT_URL_CLICK,
+                                                website_url,
+                                            ),
+                                        }),
+                                    ),
+                                createEmail: ({address}) =>
+                                    li(
+                                        {className: "email"},
+                                        Object.assign(
+                                            a({href: `mailto:${address}`}, address),
+                                            {
+                                                [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(
+                                                    null,
+                                                    EVENT_URL_CLICK,
+                                                    `mailto:${address}`,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                createPhone: ({number}) =>
+                                    li(
+                                        {className: "phone"},
+                                        Object.assign(a({href: `tel:${number}`}, number), {
+                                            [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(
+                                                null,
+                                                EVENT_URL_CLICK,
+                                                `tel:${number}`,
+                                            ),
+                                        }),
+                                    ),
+                            }),
+                        ),
+                    ),
+                ),
+            ),
+        );
+
+        // Reactivity
+        const blockLink = (e) => {
+                e.target.nodeName === "A" && e.preventDefault();
+                return e;
+            },
+            stopPropagation = (e) => {
+                e.stopImmediatePropagation();
+                return e;
+            },
+            invokeHandler = (symbolName) => (e) => {
+                (e.target[symbolName] || identity)(e);
+                return e;
+            };
+
+        [
+            {
+                eventName: "click",
+                handler: pipe(
+                    blockLink,
+                    stopPropagation,
+                    invokeHandler(SYMBOL_CLICK_HANDLER),
+                ),
+            },
+            {
+                eventName: "mouseover",
+                handler: invokeHandler(SYMBOL_OVER_HANDLER),
+            },
+            {eventName: "mouseout", handler: invokeHandler(SYMBOL_OUT_HANDLER)},
+        ].forEach(({eventName, handler}) =>
+            mainEl.addEventListener(eventName, handler, false),
+        );
+
+        uiBus.on(EVENT_URL_CLICK, window.open.bind(window));
+        uiBus.on(EVENT_PRINT_CLICK, window.print.bind(window));
+
+        // Reactivity: Analytics
+        [EVENT_URL_CLICK, EVENT_PRINT_CLICK].forEach((eventName) =>
+            uiBus.on(eventName, sendAnalyticsEvent.bind(null, eventName)),
+        );
+
+        rootEl.append(mainEl);
+    })();
+</script>
+</body>
+</html>
