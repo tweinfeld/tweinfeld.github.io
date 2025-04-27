@@ -208,7 +208,7 @@
       "company_id": "initech",
       "employment_period": ["2012/11", "2013/02"],
       "employment_type": "freelance",
-      "job_description": "Developed a JS/HTML5 web-mobile game. Handled many early-days mobile web environment challenges",
+      "job_description": "Developed a JS/HTML5 web-mobile game. Tackled numerous \"early-days\" mobile web environment challenges.",
       "tag": ["easeljs", "javascript", "browser", "gulp", "grunt", "backbone"]
     },
     {
@@ -216,7 +216,7 @@
       "company_id": "appnext",
       "employment_period": ["2011/03", "2012/10"],
       "employment_type": "freelance",
-      "job_description": "Web-based gaming project",
+      "job_description": "Developed several Web-based gaming projects, using Flash technology and Javascript",
       "tag": [
         "javascript",
         "browser",
