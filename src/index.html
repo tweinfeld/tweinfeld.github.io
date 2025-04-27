@@ -85,9 +85,7 @@
                 "deployment",
                 "cloud_provider",
             ]),
-            toFriendlyDate = (date) => [MONTH_NAMES[date.getMonth()], date.getFullYear()]
-                .map((n) => n.toString().padStart(2, "0"))
-                .join(" "),
+            toFriendlyDate = (date) => [MONTH_NAMES[date.getMonth()], date.getFullYear()].join(" "),
             identity = (x) => x,
             pipe = (...funcs) =>
                 funcs.reduce(
@@ -219,7 +217,7 @@
                 {},
                 img({src: profileData["photo"]}),
                 h1({}, profileData["full_name"]),
-                h2({}, "Data-Systems Architect, Javascript Developer"),
+                h2({}, profileData["tagline"]),
                 aside(
                     {},
                     Object.assign(button({className: "print"}, "Print"), {
@@ -287,11 +285,20 @@
                                 },
                                 ...[
                                     companyId &&
-                                    div({
-                                        className: "logo",
-                                        title: company["name"] || "",
-                                        style: `mask-image: url(logos.svg#${companyId});`,
-                                    }),
+                                    Object.assign(
+                                        div({
+                                            className: "logo",
+                                            title: company["name"] || "",
+                                            style: `mask-image: url(logos.svg#${companyId});`,
+                                        }),
+                                        {
+                                            [SYMBOL_CLICK_HANDLER]: sendUiEvent.bind(
+                                                null,
+                                                EVENT_URL_CLICK,
+                                                company["website_url"],
+                                            )
+                                        }
+                                    ),
                                     h1(
                                         {
                                             title: [
@@ -316,12 +323,7 @@
                                             date
                                                 ? time(
                                                     {datetime: date},
-                                                    `${[
-                                                        MONTH_NAMES[date.getMonth()],
-                                                        date.getFullYear(),
-                                                    ]
-                                                        .map((n) => n.toString().padStart(2, "0"))
-                                                        .join(" ")}`,
+                                                    `${toFriendlyDate(date)}`,
                                                 )
                                                 : time({}, "Now"),
                                         ),

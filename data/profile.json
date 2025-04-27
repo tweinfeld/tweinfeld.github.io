@@ -242,10 +242,6 @@
     {
       "id": "email",
       "address": "talw@webwise.co.il"
-    },
-    {
-      "id": "website",
-      "website_url": "https://demo.webwise.co.il/"
     }
   ]
 }

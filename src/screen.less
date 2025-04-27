@@ -6,7 +6,7 @@
 @theme-font-1: "Karla", sans-serif;
 @theme-font-2: "Font Awesome 5 Free";
 @theme-font-3: "Font Awesome 5 Brands";
-@theme-border-radius: 0.8rem;
+@theme-border-radius: 0.7rem;
 
 @color-application-framework: #003f5c;
 @color-library: #2f4b7c;
@@ -155,6 +155,7 @@ body {
           text-align: center;
           width: 1rem;
           display: inline-block;
+          font-weight: 900;
         }
       }
 
@@ -183,13 +184,16 @@ body {
 
           > li {
             cursor: pointer;
-            display: inline-block;
-            margin: 0.3rem;
+            display: block;
+            margin: 0.6rem 0.3rem;
             padding-left: 1.6rem;
             position: relative;
 
+            > a {
+              color: @theme-color-1;
+            }
+
             &:before {
-              font-family: @theme-font-3;
               font-weight: bold;
               font-size: 1.5rem;
               vertical-align: middle;
@@ -197,34 +201,32 @@ body {
               left: 0;
               top: 50%;
               transform: translateY(-50%);
+              color: @theme-color-4;
             }
 
             &.social-linkedin:before {
+              font-family: @theme-font-3;
               content: "\f08c";
-              color: #2a80b9;
             }
 
             &.social-github:before {
+              font-family: @theme-font-3;
               content: "\f092";
-              color: #f39c11;
             }
 
             &.email:before {
               font-family: @theme-font-2;
               content: "\f199";
-              color: #d25400;
             }
 
             &.phone:before {
               font-family: @theme-font-2;
               content: "\f098";
-              color: #16a086;
             }
 
             &.website:before {
               font-family: @theme-font-2;
               content: "\f360";
-              color: #27ae61;
             }
           }
         }
@@ -309,6 +311,7 @@ body {
             }
 
             > div.logo {
+              cursor: pointer;
               box-sizing: content-box;
               position: absolute;
               width: 5.2rem;
@@ -320,8 +323,14 @@ body {
               mask-origin: content-box;
               padding: 0.4rem;
               transform: translateY(-50%);
+              transition: background-color 0.2s;
               left: 8rem;
               top: 50%;
+
+              &:hover {
+                background-color: @theme-color-1;
+              }
+
               @media (max-width: 768px) {
                 display: none;
               }
@@ -336,7 +345,6 @@ body {
               font-weight: bold;
               text-transform: uppercase;
               background-image: linear-gradient(@theme-color-4 20%, darken(@theme-color-4, 10%) 50%, @theme-color-4 80%);
-
               background-size: 2px 100%;
               background-repeat: no-repeat;
               background-origin: padding-box;
@@ -345,12 +353,18 @@ body {
               width: 6.5rem;
               box-sizing: border-box;
               color: @theme-color-4;
+              cursor: pointer;
 
               > time {
                 display: block;
                 position: absolute;
                 right: 12px;
                 white-space: nowrap;
+                transition: color 0.2s;
+
+                &:hover {
+                  color: @theme-color-1;
+                }
 
                 &:before {
                   content: "";
@@ -375,7 +389,7 @@ body {
               }
 
               @media (max-width: 768px) {
-                  display: none;
+                display: none;
               }
             }
           }
