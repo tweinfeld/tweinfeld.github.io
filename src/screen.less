@@ -252,8 +252,11 @@ body {
             transition: margin 0.2s, padding 0.2s;
 
             @media (max-width: 768px) {
-              margin: 1.5rem 0;
+              margin: 3rem 0;
               padding: 0 1rem 0 1rem;
+              &:first-child, &:last-child {
+                margin: 0;
+              }
             }
 
             > h1 {
@@ -421,7 +424,7 @@ body {
 
     > sub {
       margin: 0 0;
-      padding: 0.5rem 0;
+      padding: 0.5rem 1rem;
       display: block;
       white-space: pre-line;
 
