@@ -22,7 +22,7 @@ html {
 }
 
 a {
-  color: lighten(@theme-color-1, 10%);
+  color: @theme-color-4;
 }
 
 a,
@@ -46,6 +46,9 @@ body {
   > main {
     margin: auto;
     padding: 1rem 0;
+    @media (max-width: 768px) {
+      padding: 0;
+    }
     max-inline-size: 1280px;
     display: flex;
     flex-direction: column;
@@ -246,6 +249,11 @@ body {
             box-sizing: border-box;
             margin: 4rem 0;
 
+            @media (max-width: 768px) {
+              margin: 1rem 0;
+              padding: 0 1rem 0 1rem;
+            }
+
             > h1 {
               margin: 0;
               font-weight: bold;
@@ -270,6 +278,7 @@ body {
               font-weight: normal;
               cursor: pointer;
               display: inline-block;
+              color: darken(@theme-color-4, 10%);
             }
 
             > p {
@@ -300,6 +309,9 @@ body {
               transform: translateY(-50%);
               left: 8rem;
               top: 50%;
+              @media (max-width: 768px) {
+                display: none;
+              }
             }
 
             > div.period {
@@ -348,6 +360,10 @@ body {
               > time:first-of-type {
                 bottom: 10px;
               }
+
+              @media (max-width: 768px) {
+                  display: none;
+              }
             }
           }
 
@@ -371,6 +387,9 @@ body {
             text-align: center;
             font-style: @theme-font-1;
             font-weight: bold;
+            @media (max-width: 768px) {
+              display: none;
+            }
           }
 
           &:before {
@@ -382,6 +401,9 @@ body {
             height: 100%;
             width: 2px;
             border-left: 2px dotted @theme-color-4;
+            @media (max-width: 768px) {
+              display: none;
+            }
           }
         }
       }
