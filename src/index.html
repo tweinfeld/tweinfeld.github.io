@@ -308,6 +308,7 @@
                                                 .filter(Boolean)
                                                 .join(" "),
                                         },
+                                        a({ name: company["id"] }),
                                         position,
                                     ),
                                     Object.assign(h2({title: company["name"]}, company["name"]), {

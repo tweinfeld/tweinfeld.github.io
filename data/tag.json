@@ -1,5 +1,26 @@
 [
   {
+    "id": "argocd",
+    "name": "Argo CD",
+    "category": "deployment",
+    "description": "Declarative GitOps CD for Kubernetes",
+    "website_url": "https://argoproj.github.io/cd/"
+  },
+  {
+    "id": "pulumi",
+    "name": "Pulumi",
+    "category": "deployment",
+    "description": "Cloud services automation",
+    "website_url": "https://www.pulumi.com/"
+  },
+  {
+    "id": "dbt",
+    "name": "DBT",
+    "category": "data_service",
+    "description": "Database modeling tool",
+    "website_url": "https://www.getdbt.com/"
+  },
+  {
     "id": "openai",
     "name": "OpenAI",
     "category": "lxm",
