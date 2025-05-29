@@ -162,8 +162,8 @@
                             document.createElement(tagName),
                             attributes,
                         );
-                        Array.prototype.concat
-                            .apply([], children)
+                        children
+                            .flat()
                             .forEach((child) =>
                                 el.appendChild(
                                     typeof child === "string"
