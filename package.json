@@ -10,11 +10,8 @@
   "keywords": ["resume", "cv", "tal", "weinfeld"],
   "author": "Tal Weinfeld",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.16.4",
-    "kefir": "^3.8.6"
-  },
   "devDependencies": {
+    "kefir": "^3.8.6",
     "less": "^4.3.0",
     "lodash": "^4.17.21",
     "prettier": "^3.5.3",
