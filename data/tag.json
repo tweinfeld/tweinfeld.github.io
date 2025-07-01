@@ -21,18 +21,18 @@
     "website_url": "https://www.getdbt.com/"
   },
   {
-    "id": "anthropic",
-    "name": "Anthropic",
+    "id": "claude",
+    "name": "Claude",
     "category": "lxm",
-    "description": "LxM provider, known its \"Claude\" model, good for code generation tasks",
-    "website_url": "https://www.anthropic.com/"
+    "description": "Online LLM service, best known for its code generation abilities",
+    "website_url": "https://claude.ai/"
   },
   {
-    "id": "openai",
-    "name": "OpenAI",
+    "id": "chatgpt",
+    "name": "ChatGPT",
     "category": "lxm",
-    "description": "LxM provider, known for \"ChatGPT\" models, good for generic assistant tasks",
-    "website_url": "https://openai.com/"
+    "description": "Online LLM service, good for generic assistant tasks",
+    "website_url": "https://chatgpt.com/"
   },
   {
     "id": "claude",
@@ -239,14 +239,14 @@
     "name": "ReactiveX",
     "category": "library",
     "description": "Observables library",
-    "website_url": "http://reactivex.io/"
+    "website_url": "https://reactivex.io/"
   },
   {
     "id": "backbone",
     "name": "Backbone",
     "category": "library",
     "description": "MVC library",
-    "website_url": "http://backbonejs.org/"
+    "website_url": "https://backbonejs.org/"
   },
   {
     "id": "angular",
@@ -342,7 +342,7 @@
     "name": "PureMVC",
     "category": "library",
     "description": "Actionscript MVC library",
-    "website_url": "http://puremvc.org/"
+    "website_url": "https://puremvc.org/"
   },
   {
     "id": "opencv",
