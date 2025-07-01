@@ -21,6 +21,13 @@
     "website_url": "https://www.getdbt.com/"
   },
   {
+    "id": "anthropic",
+    "name": "Anthropic",
+    "category": "lxm",
+    "description": "LxM provider, known its \"Claude\" model, good for code generation tasks",
+    "website_url": "https://www.anthropic.com/"
+  },
+  {
     "id": "openai",
     "name": "OpenAI",
     "category": "lxm",
