@@ -8,7 +8,7 @@
       "company_id": "sightfull",
       "employment_period": ["2024/09", "2025/04"],
       "employment_type": "full-time",
-      "job_description": "Leading R&D technology-wise. Managing and coordinating system and software design efforts across development teams dealing with backend, frontend and LxMs (OpenAI, Claude)",
+      "job_description": "Leading R&D technology-wise. Managing and coordinating system and software design efforts across development teams dealing with backend, frontend and LxMs (ChatGPT, Claude, Perplexity and Gemini)",
       "tag": [
         "bigquery",
         "postgres",
